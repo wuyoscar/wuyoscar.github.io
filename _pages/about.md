@@ -2,25 +2,41 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Data Science Enthusiast & Researcher
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image: oscarl.jpg
+  image_circular: true # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Melbourne, Australia</p>
 
 news: true  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+latest_posts: false  # includes a list of the newest posts
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+# About Me
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Hello! I'm **Oscar Wu**, a Master of Data Science graduate with a solid foundation in applied mathematics. I'm also an incoming PhD student at Deakin University, Melbourne, Australia. 
+
+My passion lies in utilizing advanced machine learning and data mining techniques to address real-world issues, especially in the field of fake news detection and intervention. For more details, check out my recent project website, [Multi-lingual COVID-19 Fake News Detection and Intervention]((https://counterinfodemic.org)), in collaboration with Gadjah Mada University, Indonesia, supported by the [International Research Partnerships Program](https://www.studymelbourne.vic.gov.au/industry/programs/research-partnerships) and [VESKI]((https://www.veski.org.au/people/xiao-liu/)).
+
+
+During my academic journey, I have accumulated valuable research experience, including a minor thesis on the interpretability of SHAP value and LIME for COVID-19 fake news detection, and serving as a research fellow at Deakin University on a multilingual COVID-19 fake news detection and intervention project. Additionally, I have worked as a casual research assistant on `Multi-objective Optimization Problems` and `Factorisation Machines` for faculty of SEBE, Deakin University 
+
+In addition to my research, I have participated in various data analysis projects, such as a pedestrian count project and an open data project for the [CoM Open Data Portal](https://data.melbourne.vic.gov.au/pages/home/). My skills encompass Python, machine learning algorithms, NLP, data mining, and data communication.
+
+
+
+Feel free to explore my [LinkedIn profile](https://www.linkedin.com/in/oscar-wu/) and [GitHub page](https://github.com/wuyoscar) to learn more about my experience and projects.
+
+
+
+
+
+
+
+

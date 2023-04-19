@@ -1,12 +1,8 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - wuyoscar
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - MLCDAI/CrawlerMLCOVID19
+  - wuyoscar/SIT723-Reserach-Project-A
+  - Chameleon-company/MOP
+

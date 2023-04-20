@@ -6,15 +6,15 @@
  * Themes
  ******************************************************************************/
 :root {
-  --global-bg-color: #ffffff;
-  --global-code-bg-color: rgba(181, 9, 172, 0.05);
+  --global-bg-color: #f2f2f2;
+  --global-code-bg-color: rgba(183, 28, 28, 0.06);
   --global-text-color: #000000;
   --global-text-color-light: #828282;
-  --global-theme-color: #368fdc;
-  --global-hover-color: #368fdc;
+  --global-theme-color: #b71c1c;
+  --global-hover-color: #b71c1c;
   --global-footer-bg-color: #1C1C1D;
-  --global-footer-text-color: #e8e8e8;
-  --global-footer-link-color: #ffffff;
+  --global-footer-text-color: #ffffff;
+  --global-footer-link-color: #b71c1c;
   --global-distill-app-color: #828282;
   --global-divider-color: rgba(0,0,0,.1);
   --global-card-bg-color: #ffffff;
@@ -110,8 +110,7 @@ h6,
 em,
 div,
 li,
-span,
-strong {
+span strong {
   color: var(--global-text-color);
 }
 
@@ -195,7 +194,7 @@ blockquote {
 .profile .address {
   margin-bottom: 5px;
   margin-top: 5px;
-  font-family: monospace;
+  font-family: Helvetica, Arial, sans-serif;
 }
 .profile .address p {
   display: inline-block;

@@ -2,10 +2,15 @@
 layout: default
 ---
 <!-- _layouts/cv.html -->
-        <div class="post">
 
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+.svg-icon {
+    width: 24px;
+    height: 24px;
+}
+        <div class="post">
           <header class="post-header">
-            <h1 class="post-title"> {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+            <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="cv pdf" style="width: 68px; height: 68px;"></a>{% endif %}</h1>
             <p class="post-description">{{ page.description }}</p>
           </header>
 

@@ -14,11 +14,11 @@ h6,
 em,
 div,
 li,
-span,
-strong {
+span
+strong 
+{
   color: var(--global-text-color);
 }
-
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
@@ -117,7 +117,7 @@ blockquote {
   .address {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
+    font-family: Helvetica, Arial, sans-serif;
 
     p {
       display: inline-block;

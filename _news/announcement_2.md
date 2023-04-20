@@ -1,32 +1,39 @@
 ---
 layout: post
-title: A long announcement with details
-date: 2015-11-07 16:11:00-0400
+title: Second Joint WorkShop on Multi-lingual COVID-19 Fake News Detection and Intervention
+date: 2020-10-28 07:00 - 16:30 AEDT
 inline: false
 related_posts: false
 ---
-
-Announcements and news can be much longer than just quick inline posts. In fact, they can have all the features available for the standard blog posts. See below.
-
+<blockquote>
+In our second Deakin-UGM joint research workshop on COVID-19 Fake News Detection and Intervention, we were pleased to invite colleagues, researchers, Fake news experts and stakeholders to discuss combating fake news amid COVID-19 uncertainties and challenges. Our research team shared current achievements in webinars, such as datasets collection, and fake news detection methodologies.
+</blockquote>
 ***
 
-Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. <a href="https://www.pinterest.com">Pinterest</a> DIY authentic Schlitz, hoodie Intelligentsia butcher trust fund brunch shabby chic Kickstarter forage flexitarian. Direct trade <a href="https://en.wikipedia.org/wiki/Cold-pressed_juice">cold-pressed</a> meggings stumptown plaid, pop-up taxidermy. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.
+## Session #1: Opening (11:00 AM -12:30 PM), Chair by Xiao
 
-#### Hipster list
-<ul>
-    <li>brunch</li>
-    <li>fixie</li>
-    <li>raybans</li>
-    <li>messenger bag</li>
-</ul>
+- Welcome address by Professor Julie Owens, Deputy Vice-Chancellor of Research at Deakin University, Australia
+- Opening speech by Ignatius Susatyo Wijoyo, Vice Rector for Research, Business Development, and Partnerships, UGM, Indonesia.
+- Project outcome report by Research Co-Lead, Associate Professor Jianxin Li (Deakin) and Dr. Hilya Mudrika Arini (UGM) 
 
-Hoodie Thundercats retro, tote bag 8-bit Godard craft beer gastropub. Truffaut Tumblr taxidermy, raw denim Kickstarter sartorial dreamcatcher. Quinoa chambray slow-carb salvia readymade, bicycle rights 90's yr typewriter selfies letterpress cardigan vegan.
+*Lunch Break (12:30 PM – 13:30 PM )*
 
+### Session #2: Invited Talks (13:30 – 16:00 ), Chair by Jianxin and Hilya 
+
+- Prof. Widodo Muktiyo, Expert Staff of Minister Communications and Informatics, Ministry of communications and informatics, Indonesia. 
+- Ms Mutiara Anissa, Science Communicator, Founder of Pandemic Talks, Indonesia. 
+  - Topic: Coronavirus Fake News: How @pandemictalk Instagram Platform is Tackling Hoax and Misinformation
+- Dr Siqin Wang, JSPS Research Fellow, University of Tokyo, Japan; Associate Chair, Spatial Data Lab, Center of Geographic Analysis, Harvard University, USA. 
+  - Topic: People as sensors: the premise of using social media data in computational social science study.
+- Dr Xiao Huang, Assistant Professor at the University of Arkansas, USA. 
+  - Topic: Social media mining under the COVID-19 context: Progress, challenges, and opportunities.
+- Dr Chunyang Chen, Senior Lecturer, Faculty of Information Technology, Monash University, Australia. 
+  - Topic: Cut Through “Infodemic” By Understanding And Supplying People’s Information Needs 
+
+### Session #3:  Keynote and Open Discussion (15:00  – 16:00 ), Chair by Xiao
+
+- Professor Catherine Bennett, Alfred Deakin Professor and Chair in Epidemiology, School of Health and Social Development, Deakin University, Australia. 
+  - Topic: D/Misinformation during the pandemic: how good and bad intent contributed to the problem and the impact.
+
+### Conclusion and Networking: 16:00 -16:30 
 ***
-
-Pug heirloom High Life vinyl swag, single-origin coffee four dollar toast taxidermy reprehenderit fap distillery master cleanse locavore. Est anim sapiente leggings Brooklyn ea. Thundercats locavore excepteur veniam eiusmod. Raw denim Truffaut Schlitz, migas sapiente Portland VHS twee Bushwick Marfa typewriter retro id keytar.
-
-> We do not grow absolutely, chronologically. We grow sometimes in one dimension, and not in another, unevenly. We grow partially. We are relative. We are mature in one realm, childish in another.
-> —Anais Nin
-
-Fap aliqua qui, scenester pug Echo Park polaroid irony shabby chic ex cardigan church-key Odd Future accusamus. Blog stumptown sartorial squid, gastropub duis aesthetic Truffaut vero. Pinterest tilde twee, odio mumblecore jean shorts lumbersexual.

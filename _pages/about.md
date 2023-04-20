@@ -1,24 +1,22 @@
 ---
 layout: about
-title: about
 permalink: /
-subtitle: Data Science Enthusiast & Researcher
+title: <strong>Oscar<strong> Wu
+description: Data Science Enthusiast & Researcher
 
 profile:
   align: right
-  image: oscarl.jpg
-  image_circular: true # crops the image to make it circular
+  image: oscarwu.jpg
+  image_circular: false # crops the image to make it circular
   address: >
-    <p>Melbourne, Australia</p>
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: false  # includes social icons at the bottom of the page
 ---
 
 
-## About Me
 
 :smile: Hello! I'm **Oscar Wu** :sparkles:, a Master of Data Science graduate with a solid foundation in applied mathematics. I'm also an incoming PhD student at Deakin University, Melbourne, Australia.
 

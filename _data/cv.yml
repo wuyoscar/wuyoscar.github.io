@@ -13,7 +13,7 @@
   contents:
     - title: Master of Data Science
       institution: Deakin University, Melbourne, Australia
-      year: 2020 - 2022
+      year: 2020 - 22
       description:
         - Achieved HD average (83.75)
         - SIT742 Modern Data Hall of Fame (Top student in this unit and presented coding skills to other master students)
@@ -24,7 +24,7 @@
         #     - Sub-description 2.
     - title: B. Sc Mathematics and Applied Mathematics
       institution: Chongqing Technology and Business University, Chongqing, China
-      year: 2014 - 2019
+      year: 2014 - 19
       description:
         - Achieved GPA 72.50
         - Thesis:Practical Applications of Eigenvectors in Linear Algebra
@@ -34,7 +34,7 @@
   contents:
     - title: Minor thesis
       institution: Deakin University, Melbourne, Australia
-      year: 03/2020 - 03/2022
+      year: 2020 - 22
       description:
         - The Interpretability of SHAP value and LIME on COVID-19 Fake News Detection
         - Created a multilingual COVID-19 fake news dataset and analyzed news features, such as COVID-19 news keywords and the distribution of languages used
@@ -46,7 +46,7 @@
         #     - Sub-description 2.
     - title: Research Fellow - Multilingual COVID-19 Fake News Detection and Intervention
       institution: Deakin University, Melbourne, Australia
-      year: 11/2021 - 10/2022
+      year: 2021 - 22
       description:
         - Multilingual COVID-19 Fake News Detection and Intervention, collaborating with Gadjah Mada University, sponsored by Study Melbourne Partnership
         - Developed project websites and built a web portal of fact-checking service to debunk COVID-19 misinformation
@@ -55,7 +55,7 @@
 
     - title: Casual Research Assistant - Multi-Objective Optimization Problems
       institution: Deakin University, Melbourne, Australia
-      year: 04/2021 - 12/2021
+      year: 2021 
       description:
         - Preparing numerous test problems by python:Function Objectives, Function constraints, Variable domain
         - Preparing EA algorithms by python, such as NSGA II
@@ -76,16 +76,17 @@
 #       year: 2015-now
 #       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
-# - title: Honors and Awards
-#   type: time_table
-#   contents:
-#     - year: 1921
-#       items: 
-#         - Nobel Prize in Physics 
-#         - Matteucci Medal
-#     - year: 2029
-#       items: 
-#         - Max Planck Medal
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 2020
+      items: SIT742 Modern Data, Hall of Fame (Top student in this unit and presented coding skills to other master students)
+    - year: 2021
+      items: Compelted Deakin Industry Student Captone (DISC) as Top 3 Project
+
+    - year: 2022
+      items: 
+        - 2022 Deakin International Student Representative in School of Information Technology Promotion Project
 
 # - title: Academic Interests
 #   type: nested_list

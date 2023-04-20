@@ -6,7 +6,7 @@ description: Data Science Enthusiast & Researcher
 
 profile:
   align: right
-  image: oscarwu.jpg
+  image: pro_img.jpg
   image_circular: false # crops the image to make it circular
   address: >
 

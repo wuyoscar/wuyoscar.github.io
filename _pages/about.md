@@ -1,7 +1,7 @@
 ---
 layout: about
 permalink: /
-title: <strong>Oscar<strong> Wu
+title: about
 description: Data Science Enthusiast & Researcher
 
 profile:

@@ -120,9 +120,9 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: oscar # blog_name will be displayed in your blog page
-blog_nav_title: #blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: a simple whitespace theme for academics
+blog_name: Blog # blog_name will be displayed in your blog page
+blog_nav_title: blog #blog # your blog must have a title for it to be displayed in the nav bar
+blog_description: Share some insights on the learning journey and always remember to ask yourself some questions. 
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -138,9 +138,9 @@ related_blog_posts:
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
+# external_sources:
+#   - name: medium.com
+#     rss_url: https://medium.com/@al-folio/feed
 
 # -----------------------------------------------------------------------------
 # Collections

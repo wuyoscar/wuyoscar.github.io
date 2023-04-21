@@ -16,7 +16,9 @@ div,
 li,
 span
 strong 
-{
+{ 
+  font-family: $global-font-family;
+  font-weight: $global-font-weight;
   color: var(--global-text-color);
 }
 hr {

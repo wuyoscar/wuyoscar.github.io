@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Oscar
+first_name: Øscar
 middle_name: 
 last_name: Wu
 email: wuy7117@gmail.com
@@ -15,7 +15,7 @@ footer_text: >
 keywords: data science, mathematics, machine learning, portfolio, academic website, Jekyll, al-folio, GitHub Pages  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ∅ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: Ø # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 
 url: "https://wuyoscar.github.io" # Note that there is no trailing slash

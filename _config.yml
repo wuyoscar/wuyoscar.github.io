@@ -19,7 +19,7 @@ icon: Ø # the emoji used as the favicon (alternatively, provide image name in /
 
 
 url: "https://wuyoscar.github.io" # Note that there is no trailing slash
-baseurl: "" # Leave this field empty
+baseurl:  # Leave this field empty
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
@@ -241,7 +241,7 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: ['nlp', 'fake news', 'resources', 'math', 'code', 'tool', 'python',' api'] # this tags will be dispalyed on the front page of your blog
+display_tags: [Markdown, Python, Math, Coding, Programming Tips, Set-up, Learning, Education, Problem Solving, Software Development, Data Science, Jupyter Notebook, Algorithms, GitHub] # this tags will be dispalyed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

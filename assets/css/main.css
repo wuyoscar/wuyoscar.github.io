@@ -111,8 +111,8 @@ em,
 div,
 li,
 span strong {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 60;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   color: var(--global-text-color);
 }
 

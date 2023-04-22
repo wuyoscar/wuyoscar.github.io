@@ -1,7 +1,7 @@
 ---
 layout: about
 permalink: /
-title: about
+title: About
 description: Data Science Enthusiast & Researcher
 
 profile:

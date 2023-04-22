@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: repositories
 permalink: /repositories/
-title: repositories
+title: Repositories
 description: 
 nav: true
 nav_order: 3

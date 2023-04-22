@@ -6,6 +6,15 @@ giscus_comments: true
 date: 2021-05-22
 tags: 
 categories: Cheast Sheet, Tips
+
+
+authors:
+  - name: Oscar Wu 
+    url: wuyoscar.github.io
+    affiliations:
+      name: 
+  
+
 toc:
   - name: Get Started
   - name: Basic Syntax

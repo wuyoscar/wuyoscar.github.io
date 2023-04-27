@@ -1,7 +1,7 @@
 ---
 layout: about
-permalink: /
 title: About
+permalink: /
 description: Data Science Enthusiast & Researcher
 profile:
   align: left

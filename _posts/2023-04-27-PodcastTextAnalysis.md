@@ -1,11 +1,12 @@
 ---
 layout: distill
-title: How to Analyze a Podcast Using NLP and Machine Learning
-description: This blog post is a guide on how to analyze a podcast using natural language processing (NLP) and machine learning techniques. It covers the entire process, including collecting podcast data, transcribing the audio to text, preprocessing the text data, analyzing the text data, and visualizing the results. The blog post aims to help readers gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast.
+title: 随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning
+description: Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.
 giscus_comments: true
 date: 2023-04-27
 tags: 
 categories: NLP, Machine Learning,Podcasts
+toc: true
 
 
 authors:
@@ -32,9 +33,16 @@ toc:
 Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we'll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We'll cover the entire process, from collecting the podcast data to visualizing the results. So, let's get started! 
 
 [Stochastic Volatility](https://www.stovol.club/) is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.
-{% include figure.html path="assets/img/2023-04/随机波动.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 
+  <div class="l-body">
+    <figure>
+    <a href = "https://www.stovol.club/">
+      <img src="/assets/img/2023-04/随机波动.png" alt="Image description">
+      <figcaption>This is a caption for the image.</figcaption>
+      </a>
+    </figure>
+  </div>
 
 
 ## Collecting Podcast Data
@@ -70,14 +78,100 @@ To use these services, you will need to register for an account, obtain API keys
 
 ### Setting up Google Cloud Speech-to-Text API
 To use the Google Cloud Speech-to-Text API, you will need to set up a Google Cloud account and create a project. Then, you will need to enable the Speech-to-Text API and create a service account. Finally, you will need to download the service account key file and set the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path of the key file. For more detailed instructions, please refer to the [Google Cloud Speech-to-Text API documentation](https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries):
+1. Login in to your Google Cloud account and create a project, then click `Dashboard` to go to the project dashboard:
 
-1. Login in to your Google Cloud account and create a project, then click `Dashboard` to go to the project dashboard.:
-        <img class="l-page" src="/assets/img/2023-04/gcc_step1.png"  alt="Image description">
-2. In the left navigation panel, click on "APIs & Services" > "Dashboard". Click on + `ENABLE APIS AND SERVICES` at the top of the page. 
-3. Search `Cloud Speech-to-Text API` and click on it. Click on `ENABLE` to enable the API.
-        <img class="l-page" src="/assets/img/2023-04/gcc_step2.png"  alt="Image description">
-4. In the left navigation panel, click `Credentials`, and create a select `Service account key`, you can choose download your credentials by `json` and store it in your local folder.
-        <img class="l-page" src="/assets/img/2023-04/gcc_step3.png"  alt="Image description">       
+   <div class="l-body">
+   <figure>
+      <img src="/assets/img/2023-04/gcc_step1.png" alt="This is a caption for the image.">
+   </figure>
+   </div>
+
+2. In the left navigation panel, click on "APIs & Services" > "Dashboard". Click on + `ENABLE APIS AND SERVICES` at the top of the page.
+
+3. Search `Cloud Speech-to-Text API & Cloud Storage API` and click on it. Click on `ENABLE` to enable the API.
+
+   <div class="l-body">
+   <figure>
+      <img src="/assets/img/2023-04/gcc_step2.png" alt="This is a caption for the image.">
+      </figure>
+   </div>
+
+4. In the left navigation panel, click `Credentials`, and create a select `Service account`, you can choose download your credentials by `json` and store it in your local folder.
+
+   <div class="l-body">
+   <figure>
+      <img src="/assets/img/2023-04/gcc_step3.png" alt="This is a caption for the image.">
+      </figure>
+   </div>
 
 
-Now we are ready to go! Let's start transcribing our podcast audio to text using `Python` 
+Before transcribing entire episodes, we can test the Google Cloud Speech-to-Text API on a short audio clip. To do this, we can use the `30sec_example.mp3` audio file to get start.
+`speech.RecognitionAudio` and `speech.RecognitionConfig` are required to use the Google Cloud Speech-to-Text API. `speech.RecognitionAudio` is used to specify the audio file to be transcribed, and `speech.RecognitionConfig` is used to specify the language code and audio encoding of the audio file. The language code for Chinese is `zh-CN`, and the audio encoding for MP3 is `MP3`. For more information on the language codes and audio encodings supported by the Google Cloud Speech-to-Text API, please refer to the [Google Cloud Speech-to-Text API documentation](https://cloud.google.com/speech-to-text/docs/languages).
+
+
+{% highlight json %}
+//https://cloud.google.com/speech-to-text/docs/reference/rest/v1/RecognitionAudio
+"RecognitionAudio" :{
+
+  // Union field audio_source can be only one of the following:
+  "content": string,
+  "uri": string
+  // End of list of possible types for union field audio_source.
+}
+
+//https://cloud.google.com/speech-to-text/docs/reference/rest/v1/RecognitionConfig
+"RecognitionConfig":{
+  "encoding": enum (AudioEncoding),
+  "sampleRateHertz": integer,
+  "audioChannelCount": integer,
+  "enableSeparateRecognitionPerChannel": boolean,
+  "languageCode": string,
+  "alternativeLanguageCodes": [
+    string
+  ],
+  "maxAlternatives": integer,
+  "profanityFilter": boolean,
+  "adaptation": {
+    object (SpeechAdaptation)
+  },
+  "speechContexts": [
+    {
+      object (SpeechContext)
+    }
+  ],
+  "enableWordTimeOffsets": boolean,
+  "enableWordConfidence": boolean,
+  "enableAutomaticPunctuation": boolean,
+  "enableSpokenPunctuation": boolean,
+  "enableSpokenEmojis": boolean,
+  "diarizationConfig": {
+    object (SpeakerDiarizationConfig)
+  },
+  "metadata": {
+    object (RecognitionMetadata)
+  },
+  "model": string,
+  "useEnhanced": boolean
+}
+{% endhighlight%}
+
+{% highlight python %}
+pip install --upgrade google-cloud-speech
+pip install --upgrade google-cloud-storage
+
+import os
+from google.cloud import speech_v1p1beta1 as speech 
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'path/to/your/credentials.json'
+#initialize speech client
+speech_client = speech.SpeechClient()
+
+#example audio file in different format
+media_file_name_mp3 = '/Users/wuyoscar/Downloads/exmaple.mp3'
+media_file_name_flac = '/Users/wuyoscar/Downloads/exmaple.flac' 
+{% endhighlight%}
+
+
+
+
+
+

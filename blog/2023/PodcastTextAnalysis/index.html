@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- _layouts/distill.html --><html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning | Øscar  Wu</title>
+    <meta name="author" content="Øscar  Wu">
+    <meta name="description" content="Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.">
+    <meta name="keywords" content="data science, mathematics, machine learning, portfolio, academic website, Jekyll, al-folio, GitHub Pages">
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:100,300,400,500,700%7CMaterial+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%C3%98&lt;/text&gt;&lt;/svg&gt;">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/">
+    
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark">
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <!-- Distill js -->
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
+  </head>
+
+  <body>
+<d-front-matter>
+    <script async type="text/json">{
+      "title": "随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning",
+      "description": "Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.",
+      "published": "April 27, 2023",
+      "authors": [
+        {
+          "author": "Oscar Wu",
+          "authorURL": "wuyoscar.github.io",
+          "affiliations": [
+            {
+              "name": "",
+              "url": ""
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
+
+  
+
+    <!-- Header --><header>
+
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Øscar </span>Wu</a>
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">About</a>
+          </li>
+          
+          <!-- Blog -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog/">Blog<span class="sr-only">(current)</span></a>
+          </li>
+
+          <!-- Other pages -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/repositories/">Repositories</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/cv/">Vitae</a>
+          </li>
+
+          <!-- Toogle theme mode -->
+          <li class="toggle-container">
+            <button id="light-toggle" title="Change theme">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scrolling Progress Bar -->
+  <progress id="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</header>
+
+    <!-- Content -->
+    <div class="post distill">
+
+      <d-title>
+        <h1>随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</h1>
+        <p>Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.</p>
+      </d-title>
+
+      <d-byline></d-byline>
+
+      <d-article>
+        <d-contents>
+          <nav class="l-text figcaption">
+          <h3>Contents</h3>
+            <div><a href="#introduction">Introduction</a></div>
+            <div><a href="#collecting-podcast-data">Collecting Podcast Data</a></div>
+            <div><a href="#transcribing-podcast-audio-to-text">Transcribing Podcast Audio to Text</a></div>
+            <div><a href="#preprocessing-the-text-data">Preprocessing the Text Data</a></div>
+            <div><a href="#analyzing-the-text-data">Analyzing the Text Data</a></div>
+            <div><a href="#visualizing-the-results">Visualizing the Results</a></div>
+            <div><a href="#conclusion">Conclusion</a></div>
+            
+          </nav>
+        </d-contents>
+
+        <h2 id="introduction">Introduction</h2>
+<p>Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we’ll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We’ll cover the entire process, from collecting the podcast data to visualizing the results. So, let’s get started!</p>
+
+<p><a href="https://www.stovol.club/" rel="external nofollow noopener" target="_blank">Stochastic Volatility</a> is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.</p>
+
+<div class="l-body">
+    <figure>
+    <a href="https://www.stovol.club/" rel="external nofollow noopener" target="_blank">
+      <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8.png" alt="Image description">
+      <figcaption>This is a caption for the image.</figcaption>
+      </a>
+    </figure>
+  </div>
+
+<h2 id="collecting-podcast-data">Collecting Podcast Data</h2>
+
+<p>At Stochastic Volatility, we have selected three episodes with themes related to <code class="language-plaintext highlighter-rouge">Feminism</code> for analysis. These episodes cover a range of topics related to women, such as gender equality, feminism, and women’s roles in society. By using NLP and machine learning techniques to analyze the text data of these episodes, we hope to gain deeper insights into the discussions and perspectives presented on these important topics.</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+    </div>
+</div>
+
+<p>As you can see, the average duration of each episode is <strong>1 hrs 30mins</strong>, which means that we have to spend roughly <strong>4 hrs 30mins</strong> to listen to these three episodes. However, we can use NLP and machine learning techniques to analyze the text data of these episodes, which will save us a lot of time. However, before we can analyze the text data, we need to transcribe the audio to text. Next, we’ll explore how to do this.</p>
+
+<h2 id="transcribing-podcast-audio-to-text">Transcribing Podcast Audio to Text</h2>
+<p>To transcribe Chinese audio to text, there are several options available. Here are three popular choices:</p>
+
+<ul>
+  <li>
+    <p>Baidu Speech Recognition API: This is a speech recognition service provided by Baidu, a Chinese tech giant. It supports Chinese and can transcribe audio to text in real-time. It is relatively accurate and has a free trial with a limited amount of transcription time per month.</p>
+  </li>
+  <li>
+    <p>iFlytek Speech Recognition API: This is a speech recognition service provided by iFlytek, a leading Chinese AI company. It supports Chinese and can transcribe audio to text with high accuracy. It has a free trial with a limited amount of transcription time per day.</p>
+  </li>
+  <li>
+    <p>Google Cloud Speech-to-Text API: This is a speech recognition service provided by Google Cloud, which supports several languages including Chinese. It has high accuracy and can transcribe long-form audio. However, it is a paid service and can be expensive for large amounts of transcription.</p>
+  </li>
+</ul>
+
+<p>To use these services, you will need to register for an account, obtain API keys, and then integrate them into your transcription workflow. Once you have integrated the service of your choice, you can transcribe your Chinese audio to text by uploading or streaming the audio to the API, which will return the text transcription. Here, we will use the Google Cloud Speech-to-Text API to transcribe our podcast audio to text.</p>
+
+<h3 id="setting-up-google-cloud-speech-to-text-api">Setting up Google Cloud Speech-to-Text API</h3>
+<p>To use the Google Cloud Speech-to-Text API, you will need to set up a Google Cloud account and create a project. Then, you will need to enable the Speech-to-Text API and create a service account. Finally, you will need to download the service account key file and set the environment variable <code class="language-plaintext highlighter-rouge">GOOGLE_APPLICATION_CREDENTIALS</code> to the path of the key file. For more detailed instructions, please refer to the <a href="https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries" rel="external nofollow noopener" target="_blank">Google Cloud Speech-to-Text API documentation</a>:</p>
+<ol>
+  <li>
+    <p>Login in to your Google Cloud account and create a project, then click <code class="language-plaintext highlighter-rouge">Dashboard</code> to go to the project dashboard:</p>
+
+    <div class="l-body">
+<figure>
+   <img src="/assets/img/2023-04/gcc_step1.png" alt="This is a caption for the image.">
+</figure>
+</div>
+  </li>
+  <li>
+    <p>In the left navigation panel, click on “APIs &amp; Services” &gt; “Dashboard”. Click on + <code class="language-plaintext highlighter-rouge">ENABLE APIS AND SERVICES</code> at the top of the page.</p>
+  </li>
+  <li>
+    <p>Search <code class="language-plaintext highlighter-rouge">Cloud Speech-to-Text API &amp; Cloud Storage API</code> and click on it. Click on <code class="language-plaintext highlighter-rouge">ENABLE</code> to enable the API.</p>
+
+    <div class="l-body">
+<figure>
+   <img src="/assets/img/2023-04/gcc_step2.png" alt="This is a caption for the image.">
+   </figure>
+</div>
+  </li>
+  <li>
+    <p>In the left navigation panel, click <code class="language-plaintext highlighter-rouge">Credentials</code>, and create a select <code class="language-plaintext highlighter-rouge">Service account</code>, you can choose download your credentials by <code class="language-plaintext highlighter-rouge">json</code> and store it in your local folder.</p>
+
+    <div class="l-body">
+<figure>
+   <img src="/assets/img/2023-04/gcc_step3.png" alt="This is a caption for the image.">
+   </figure>
+</div>
+  </li>
+</ol>
+
+<p>Before transcribing entire episodes, we can test the Google Cloud Speech-to-Text API on a short audio clip. To do this, we can use the <code class="language-plaintext highlighter-rouge">30sec_example.mp3</code> audio file to get start.
+<code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> are required to use the Google Cloud Speech-to-Text API. <code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> is used to specify the audio file to be transcribed, and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> is used to specify the language code and audio encoding of the audio file. The language code for Chinese is <code class="language-plaintext highlighter-rouge">zh-CN</code>, and the audio encoding for MP3 is <code class="language-plaintext highlighter-rouge">MP3</code>. For more information on the language codes and audio encodings supported by the Google Cloud Speech-to-Text API, please refer to the <a href="https://cloud.google.com/speech-to-text/docs/languages" rel="external nofollow noopener" target="_blank">Google Cloud Speech-to-Text API documentation</a>.</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">//https://cloud.google.com/speech-to-text/docs/reference/rest/v</span><span class="mi">1</span><span class="err">/RecognitionAudio</span><span class="w">
+</span><span class="nl">"RecognitionAudio"</span><span class="w"> </span><span class="p">:{</span><span class="w">
+
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Union</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">audio_source</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following:</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">End</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">possible</span><span class="w"> </span><span class="err">types</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">union</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">audio_source.</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">//https://cloud.google.com/speech-to-text/docs/reference/rest/v</span><span class="mi">1</span><span class="err">/RecognitionConfig</span><span class="w">
+</span><span class="nl">"RecognitionConfig"</span><span class="p">:{</span><span class="w">
+  </span><span class="nl">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="err">enum</span><span class="w"> </span><span class="err">(AudioEncoding)</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleRateHertz"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"audioChannelCount"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableSeparateRecognitionPerChannel"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"languageCode"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"alternativeLanguageCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">string</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"maxAlternatives"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"profanityFilter"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"adaptation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeechAdaptation)</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"speechContexts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeechContext)</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"enableWordTimeOffsets"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableWordConfidence"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableAutomaticPunctuation"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableSpokenPunctuation"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableSpokenEmojis"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"diarizationConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeakerDiarizationConfig)</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">object</span><span class="w"> </span><span class="err">(RecognitionMetadata)</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"useEnhanced"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">speech</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">storage</span>
+
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">google.cloud</span> <span class="kn">import</span> <span class="n">speech_v1p1beta1</span> <span class="k">as</span> <span class="n">speech</span> 
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'GOOGLE_APPLICATION_CREDENTIALS'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'path/to/your/credentials.json'</span>
+<span class="c1">#initialize speech client
+</span><span class="n">speech_client</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">SpeechClient</span><span class="p">()</span>
+
+<span class="c1">#example audio file in different format
+</span><span class="n">media_file_name_mp3</span> <span class="o">=</span> <span class="s">'/Users/wuyoscar/Downloads/exmaple.mp3'</span>
+<span class="n">media_file_name_flac</span> <span class="o">=</span> <span class="s">'/Users/wuyoscar/Downloads/exmaple.flac'</span> </code></pre></figure>
+
+
+      </d-article>
+
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
+
+      <d-bibliography src="/assets/bibliography/"></d-bibliography>
+</div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Øscar  Wu. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
+
+      </div>
+    </footer>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    
+    
+
+<!-- Scrolling Progress Bar -->
+<script type="text/javascript">
+  /*
+   * This JavaScript code has been adapted from the article 
+   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
+   * published on the website https://css-tricks.com on the 7th of May, 2014.
+   * Couple of changes were made to the original code to make it compatible 
+   * with the `al-foio` theme.
+   */
+  const progressBar = $("#progress");
+  /*
+   * We set up the bar after all elements are done loading.
+   * In some cases, if the images in the page are larger than the intended
+   * size they'll have on the page, they'll be resized via CSS to accomodate
+   * the desired size. This mistake, however, breaks the computations as the
+   * scroll size is computed as soon as the elements finish loading.
+   * To account for this, a minimal delay was introduced before computing the
+   * values.
+   */
+  window.onload = function () {
+    setTimeout(progressBarSetup, 50);
+  };
+  /*
+   * We set up the bar according to the browser.
+   * If the browser supports the progress element we use that.
+   * Otherwise, we resize the bar thru CSS styling
+   */
+  function progressBarSetup() {
+    if ("max" in document.createElement("progress")) {
+      initializeProgressElement();
+      $(document).on("scroll", function() {
+        progressBar.attr({ value: getCurrentScrollPosition() });
+      });
+      $(window).on("resize", initializeProgressElement);
+    } else {
+      resizeProgressBar();
+      $(document).on("scroll", resizeProgressBar);
+      $(window).on("resize", resizeProgressBar);
+    }
+  }
+  /*
+   * The vertical scroll position is the same as the number of pixels that
+   * are hidden from view above the scrollable area. Thus, a value > 0 is
+   * how much the user has scrolled from the top
+   */
+  function getCurrentScrollPosition() {
+    return $(window).scrollTop();
+  }
+
+  function initializeProgressElement() {
+    let navbarHeight = $("#navbar").outerHeight(true);
+    $("body").css({ "padding-top": navbarHeight });
+    $("progress-container").css({ "padding-top": navbarHeight });
+    progressBar.css({ top: navbarHeight });
+    progressBar.attr({
+      max: getDistanceToScroll(),
+      value: getCurrentScrollPosition(),
+    });
+  }
+  /*
+   * The offset between the html document height and the browser viewport
+   * height will be greater than zero if vertical scroll is possible.
+   * This is the distance the user can scroll
+   */
+  function getDistanceToScroll() {
+    return $(document).height() - $(window).height();
+  }
+
+  function resizeProgressBar() {
+    progressBar.css({ width: getWidthPercentage() + "%" });
+  }
+  // The scroll ratio equals the percentage to resize the bar
+  function getWidthPercentage() {
+    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+  }
+</script>
+
+  
+</body>
+</html>

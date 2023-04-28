@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-28T02:04:05+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-28T10:58:04+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we’ll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We’ll cover the entire process, from collecting the podcast data to visualizing the results. So, let’s get started!</p>
 
 <p><a href="https://www.stovol.club/">Stochastic Volatility</a> is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.</p>
@@ -17,56 +17,20 @@
 <p>At Stochastic Volatility, we have selected three episodes with themes related to <code class="language-plaintext highlighter-rouge">Feminism</code> for analysis. These episodes cover a range of topics related to women, such as gender equality, feminism, and women’s roles in society. By using NLP and machine learning techniques to analyze the text data of these episodes, we hope to gain deeper insights into the discussions and perspectives presented on these important topics.</p>
 
 <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_96.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
+    <div class="col-sm mt-3 mt-md-0 mb-4">
+        <a href="https://www.stovol.club/096" target="_blank">
+            <img src="/assets/img/2023-04/随机波动_96.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+        </a>
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_94.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
+    <div class="col-sm mt-3 mt-md-0 mb-4">
+        <a href="https://www.stovol.club/094" target="_blank">
+            <img src="/assets/img/2023-04/随机波动_94.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+        </a>
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/2023-04/%E9%9A%8F%E6%9C%BA%E6%B3%A2%E5%8A%A8_85.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
+    <div class="col-sm mt-3 mt-md-0 mb-4">
+        <a href="https://www.stovol.club/085" target="_blank">
+            <img src="/assets/img/2023-04/随机波动_85.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+        </a>
     </div>
 </div>
 
@@ -124,62 +88,287 @@
   </li>
 </ol>
 
+<h3 id="test-the-google-cloud-speech-to-text-api">Test the Google Cloud Speech-to-Text API</h3>
 <p>Before transcribing entire episodes, we can test the Google Cloud Speech-to-Text API on a short audio clip. To do this, we can use the <code class="language-plaintext highlighter-rouge">30sec_example.mp3</code> audio file to get start.
-<code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> are required to use the Google Cloud Speech-to-Text API. <code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> is used to specify the audio file to be transcribed, and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> is used to specify the language code and audio encoding of the audio file. The language code for Chinese is <code class="language-plaintext highlighter-rouge">zh-CN</code>, and the audio encoding for MP3 is <code class="language-plaintext highlighter-rouge">MP3</code>. For more information on the language codes and audio encodings supported by the Google Cloud Speech-to-Text API, please refer to the <a href="https://cloud.google.com/speech-to-text/docs/languages">Google Cloud Speech-to-Text API documentation</a>.</p>
+<code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> are required to use the Google Cloud Speech-to-Text API. <code class="language-plaintext highlighter-rouge">speech.RecognitionAudio</code> is used to specify the audio file to be transcribed, and <code class="language-plaintext highlighter-rouge">speech.RecognitionConfig</code> is used to specify the language code and audio encoding of the audio file. The language code for Chinese is <code class="language-plaintext highlighter-rouge">zh-CN</code>, and the audio encoding for MP3 is <code class="language-plaintext highlighter-rouge">MP3</code>.</p>
+<details><summary>Test example code</summary>
+<d-code language="python">
+pip install --upgrade google-cloud-speech
+pip install --upgrade google-cloud-storage
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">//https://cloud.google.com/speech-to-text/docs/reference/rest/v</span><span class="mi">1</span><span class="err">/RecognitionAudio</span><span class="w">
-</span><span class="nl">"RecognitionAudio"</span><span class="w"> </span><span class="p">:{</span><span class="w">
+# Import required libraries
+import os
+from google.cloud import speech_v1p1beta1 as speech
+import soundfile as sf
 
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Union</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">audio_source</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following:</span><span class="w">
-  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">End</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">possible</span><span class="w"> </span><span class="err">types</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">union</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">audio_source.</span><span class="w">
-</span><span class="p">}</span><span class="w">
+# Set environment variable for Google Cloud authentication
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'path/to/your/credentials.json'
 
-</span><span class="err">//https://cloud.google.com/speech-to-text/docs/reference/rest/v</span><span class="mi">1</span><span class="err">/RecognitionConfig</span><span class="w">
-</span><span class="nl">"RecognitionConfig"</span><span class="p">:{</span><span class="w">
-  </span><span class="nl">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="err">enum</span><span class="w"> </span><span class="err">(AudioEncoding)</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"sampleRateHertz"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"audioChannelCount"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enableSeparateRecognitionPerChannel"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"languageCode"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"alternativeLanguageCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="err">string</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"maxAlternatives"</span><span class="p">:</span><span class="w"> </span><span class="err">integer</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"profanityFilter"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"adaptation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeechAdaptation)</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"speechContexts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeechContext)</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"enableWordTimeOffsets"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enableWordConfidence"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enableAutomaticPunctuation"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enableSpokenPunctuation"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enableSpokenEmojis"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"diarizationConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">object</span><span class="w"> </span><span class="err">(SpeakerDiarizationConfig)</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">object</span><span class="w"> </span><span class="err">(RecognitionMetadata)</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="err">string</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"useEnhanced"</span><span class="p">:</span><span class="w"> </span><span class="err">boolean</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+# Initialize the Google Cloud Speech-to-Text client
+speech_client = speech.SpeechClient()
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">speech</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">storage</span>
+# Define the paths for the MP3 and FLAC audio files
+media_file_name_mp3 = '/Users/wuyoscar/Downloads/exmaple.mp3'
+media_file_name_flac = '/Users/wuyoscar/Downloads/exmaple.flac'
 
-<span class="kn">import</span> <span class="n">os</span>
-<span class="kn">from</span> <span class="n">google.cloud</span> <span class="kn">import</span> <span class="n">speech_v1p1beta1</span> <span class="k">as</span> <span class="n">speech</span> 
-<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'GOOGLE_APPLICATION_CREDENTIALS'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'path/to/your/credentials.json'</span>
-<span class="c1">#initialize speech client
-</span><span class="n">speech_client</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">SpeechClient</span><span class="p">()</span>
+# Read audio data and sample rate from the FLAC file using the soundfile library
+audio_flac, sample_rate_flac = sf.read(media_file_name_flac)
 
-<span class="c1">#example audio file in different format
-</span><span class="n">media_file_name_mp3</span> <span class="o">=</span> <span class="s">'/Users/wuyoscar/Downloads/exmaple.mp3'</span>
-<span class="n">media_file_name_flac</span> <span class="o">=</span> <span class="s">'/Users/wuyoscar/Downloads/exmaple.flac'</span> </code></pre></figure>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Machine" /><category term="Learning,Podcasts" /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">Markdown Guide</title><link href="https://wuyoscar.github.io/blog/2023/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown Guide" /><published>2023-04-21T00:00:00+00:00</published><updated>2023-04-21T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/MarkdownGuide/"><![CDATA[]]></content><author><name>Oscar Wu</name></author><category term="Cheast" /><category term="Sheet," /><category term="Tips" /><summary type="html"><![CDATA[Cheatsheet and Syntax Guide for Markdown and Blog]]></summary></entry></feed>
+# Get the number of audio channels from the FLAC file using the soundfile library
+flac_info = sf.info(media_file_name_flac)
+num_channels_flac = flac_info.channels
+
+# Read the contents of the FLAC file into a RecognitionAudio object
+with open(media_file_name_flac, 'rb') as f:
+    audio_flac = speech.RecognitionAudio(content=f.read())
+
+# Read the contents of the MP3 file into a RecognitionAudio object
+with open(media_file_name_mp3, 'rb') as f:
+    audio_mp3 = speech.RecognitionAudio(content=f.read())
+
+# Set up the recognition config object for the MP3 file with the required parameters
+config_mp3 = speech.RecognitionConfig(
+    sample_rate_hertz=44100,
+    language_code="zh-CN"
+)
+
+# Set up the recognition config object for the FLAC file with the correct number of channels and other parameters
+config_flac = speech.RecognitionConfig(
+    encoding=speech.RecognitionConfig.AudioEncoding.FLAC,
+    sample_rate_hertz=sample_rate_flac,
+    audio_channel_count=num_channels_flac,
+    language_code="cmn-Hans-CN"
+)
+
+speech_client.recognize(
+    config=config_mp3, 
+    audio=audio_mp3
+)
+
+</d-code>
+</details>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">results</span> <span class="p">{</span>
+  <span class="n">alternatives</span> <span class="p">{</span>
+    <span class="n">transcript</span><span class="p">:</span> <span class="s">"Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程"</span>
+    <span class="n">confidence</span><span class="p">:</span> <span class="mf">0.950523674</span>
+  <span class="p">}</span>
+  <span class="n">result_end_time</span> <span class="p">{</span>
+    <span class="n">seconds</span><span class="p">:</span> <span class="mi">13</span>
+    <span class="n">nanos</span><span class="p">:</span> <span class="mi">920000000</span>
+  <span class="p">}</span>
+  <span class="n">language_code</span><span class="p">:</span> <span class="s">"cmn-hans-cn"</span>
+<span class="p">}</span>
+<span class="n">total_billed_time</span> <span class="p">{</span>
+  <span class="n">seconds</span><span class="p">:</span> <span class="mi">14</span>
+<span class="p">}</span>
+<span class="n">request_id</span><span class="p">:</span> <span class="mi">5898031208</span><span class="c1">######
+</span></code></pre></div></div>
+
+<h3 id="transcribe-the-entire-episode">Transcribe the entire episode</h3>
+
+<p>Now that we have tested the Google Cloud Speech-to-Text API on a short audio clip, we can transcribe the entire episode. To do this, we can use the <code class="language-plaintext highlighter-rouge">transcribe_audio</code> function to transcribe the audio file and save the transcription to a text file. The <code class="language-plaintext highlighter-rouge">transcribe_audio</code> function is as following:</p>
+
+<p>Table below is Reference for selected <a href="https://cloud.google.com/speech-to-text/docs/reference/rpc/google.cloud.speech.v1p1beta1#recognitionconfig">parameters</a> :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: left">Desc</th>
+      <th style="text-align: center">Variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">load_custom_phrases</code></td>
+      <td style="text-align: left">You can create phrases and store list in yaml file</td>
+      <td style="text-align: center">Function</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">create_adaptation_resources</code> (<strong>skip</strong>)</td>
+      <td style="text-align: left">By utilizing the model adaptation function, you can specify the words and/or phrases that Speech-to-Text must recognize more frequently in the audio data, without suggesting other potentially suitable alternative expressions.</td>
+      <td style="text-align: center">Function</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">upload_blob</code></td>
+      <td style="text-align: left">If audio file is more than 1 mins, you need upload to file into <em>Cloud Storage</em></td>
+      <td style="text-align: center">Function</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">language_code</code></td>
+      <td style="text-align: left"><a href="https://cloud.google.com/speech-to-text/docs/speech-to-text-supported-languages">speech-to-text-supported-languages</a></td>
+      <td style="text-align: center">Fcuntion Parameter</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bucket_name</code></td>
+      <td style="text-align: left">Name of the Google Cloud Storage bucket</td>
+      <td style="text-align: center">Google Cloud Variable</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">file_path</code></td>
+      <td style="text-align: left">Path to the audio file to be transcribed</td>
+      <td style="text-align: center">Audio File</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">credentials_path</code></td>
+      <td style="text-align: left">path to service account credential</td>
+      <td style="text-align: center">Google Cloud Variable</td>
+    </tr>
+  </tbody>
+</table>
+
+<details><summary>Wrap everything together and custmoize configuration based on content</summary>
+<d-code language="python">
+from google.cloud import speech_v1p1beta1 as speech
+from google.cloud import storage
+import os
+import yaml
+
+credentials_path = "path/to/your/credentials.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
+
+load_custom_phrases_path = 'path/to/your/custom_phrases.yaml'
+project_id = "your-project-id"
+location = "global"
+custom_class_id = "mycustomclass01"
+phrase_set_id = "myphraseset01"
+
+
+def load_custom_phrases(file_path=load_custom_phrases_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return yaml.safe_load(file)
+
+
+
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+    """Uploads a file to the bucket."""
+    storage_client = storage.Client.from_service_account_json(credentials_path)
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    blob.upload_from_filename(source_file_name)
+    print(f"File {source_file_name} uploaded to {destination_blob_name}.")
+
+
+def transcribe_audio_file(bucket_name, file_path, phrases):
+    destination_blob_name = os.path.basename(file_path)
+    storage_client = storage.Client.from_service_account_json(credentials_path)
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    if not blob.exists():
+        upload_blob(bucket_name, file_path, destination_blob_name)
+    else:
+        print(f"File {destination_blob_name} already exists in the bucket.")
+
+    client = speech.SpeechClient.from_service_account_json(credentials_path)
+
+    config = speech.RecognitionConfig(
+        encoding=speech.RecognitionConfig.AudioEncoding.MP3,
+        sample_rate_hertz=44100,
+        audio_channel_count=3,
+        language_code="zh-CN",
+        enable_automatic_punctuation=True,
+        enable_separate_recognition_per_channel=True,
+        use_enhanced=True,
+        enable_speaker_diarization=True,
+        diarization_speaker_count=3,
+        speech_contexts=[{"phrases": phrases}],
+    )
+
+    storage_uri = f"gs://{bucket_name}/{destination_blob_name}"
+    audio = speech.RecognitionAudio(uri=storage_uri)
+
+    operation = client.long_running_recognize(config=config, audio=audio)
+    print("Waiting for operation to complete...")
+
+    timeout_seconds = 7200
+    response = operation.result(timeout=timeout_seconds)
+    return response
+
+def save_response_to_file(response, output_file):
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for index, result in enumerate(response.results):
+            # Choose the first alternative (most likely) from the list of alternatives
+            alternative = result.alternatives[0]
+            transcript = alternative.transcript
+             #skip empty string and only save the frist transcript
+            if transcript.strip() and index % 2 != 0 :
+                print(transcript.strip())
+                f.write(transcript + '\n')
+    print(f"Transcript saved to {output_file}")
+
+</d-code>
+</details>
+
+<h2 id="data-preprocessing">Data Preprocessing</h2>
+<h3 id="improving-punctuation-in-transcribed-text">Improving Punctuation in Transcribed Text</h3>
+<p>Before diving into the preprocessing of the text data, it’s important to address an issue with the speech-to-text output. The transcription process might not have recognized all punctuation correctly, leading to a suboptimal final text file. To improve the quality of the text data, we will perform an additional preprocessing step to correct the punctuation</p>
+<div class="fake-img l-gutter">
+  <p>to be continue</p>
+</div>
+
+<h3 id="preprocessing-the-text-data">Preprocessing the Text Data</h3>
+<p>After successfully transcribing the audio content of the 随机波动 (Stochastic Volatility) podcasts, the next step in our NLP and machine learning analysis is to preprocess the text data. This step is crucial as it helps to clean and format the raw text, making it easier for our machine learning models to understand and process the content effectively.</p>
+
+<p>In this section, we will cover the following preprocessing techniques:</p>
+<ol>
+  <li>Tokenization</li>
+  <li>Removing stop words</li>
+  <li>Removing special characters and numbers</li>
+  <li>Lowercasing</li>
+  <li>Lemmatization</li>
+</ol>
+
+<h3 id="tokenization">Tokenization</h3>
+<p>Tokenization is the process of breaking down the text into individual words or tokens. For Chinese text, we will use the Jieba library for tokenization.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">jieba</span>
+<span class="k">def</span> <span class="nf">tokenize_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="nf">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tokens</span>
+
+</code></pre></div></div>
+
+<h3 id="removing-stop-words">Removing stop words</h3>
+<p>Stop words are common words that do not carry much meaning and can be removed from the text to reduce noise. You can either create a custom list of Chinese stop words or find an existing list online. Load the stop words into a Python set for efficient filtering.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load_stop_words</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="n">stop_words</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">stop_words</span>
+
+<span class="n">stop_words_file_path</span> <span class="o">=</span> <span class="s">'path/to/chinese_stop_words.txt'</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nf">load_stop_words</span><span class="p">(</span><span class="n">stop_words_file_path</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">remove_stop_words</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">):</span>
+    <span class="n">cleaned_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">cleaned_tokens</span>
+
+</code></pre></div></div>
+
+<h3 id="removing-special-characters-and-numbers">Removing special characters and numbers</h3>
+<p>We will remove any special characters, numbers, and whitespace from the tokens to further clean the text.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">remove_special_characters_and_numbers</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+    <span class="n">cleaned_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">word</span><span class="p">.</span><span class="nf">isdigit</span><span class="p">()]</span>
+    <span class="k">return</span> <span class="n">cleaned_tokens</span>
+</code></pre></div></div>
+
+<h3 id="preprocessing-pipeline">Preprocessing Pipeline</h3>
+<p>Now, we will create a preprocessing pipeline that combines all the above techniques. The pipeline takes raw Chinese text as input and returns cleaned tokens.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">preprocess_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">):</span>
+    <span class="c1"># Tokenize
+</span>    <span class="n">tokens</span> <span class="o">=</span> <span class="nf">tokenize_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Remove stop words
+</span>    <span class="n">tokens</span> <span class="o">=</span> <span class="nf">remove_stop_words</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">)</span>
+
+    <span class="c1"># Remove special characters and numbers
+</span>    <span class="n">cleaned_tokens</span> <span class="o">=</span> <span class="nf">remove_special_characters_and_numbers</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cleaned_tokens</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s">"path/to/your/txt_file.txt"</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nf">read_text_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">preprocessed_tokens</span> <span class="o">=</span> <span class="nf">preprocess_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Machine" /><category term="Learning,Podcasts" /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">Markdown Guide</title><link href="https://wuyoscar.github.io/blog/2023/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown Guide" /><published>2023-04-21T00:00:00+00:00</published><updated>2023-04-21T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/MarkdownGuide/"><![CDATA[]]></content><author><name>Oscar Wu</name></author><category term="Cheast" /><category term="Sheet," /><category term="Tips" /><summary type="html"><![CDATA[Cheatsheet and Syntax Guide for Markdown and Blog]]></summary></entry></feed>

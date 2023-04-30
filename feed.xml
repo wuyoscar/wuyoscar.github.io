@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-30T10:21:36+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-30T10:43:29+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we’ll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We’ll cover the entire process, from collecting the podcast data to visualizing the results. So, let’s get started!</p>
 
 <p><a href="https://www.stovol.club/">Stochastic Volatility</a> is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.</p>
@@ -309,11 +309,11 @@ def save_response_to_file(response, output_file):
 
 <ol>
   <li>In this text snippet, the names “服饰演”, “张知其”, and “冷见过” were incorrectly recognized. The correct names should be “傅适野”, “张之琪”, and “冷建国”.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">各位听众朋友大家好</span><span class="err">，</span><span class="nx">欢迎收听星期的随机波动</span><span class="err">，</span><span class="nx">我是服饰演我是张知其我是冷见过你怎么还吃</span>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>各位听众朋友大家好，欢迎收听星期的随机波动，我是服饰演我是张知其我是冷见过你怎么还吃
 </code></pre></div>    </div>
   </li>
   <li>The Chinese text segmentation is not very accurate, leading to missing periods and commas, which makes the sentence meaning unclear.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span><span class="nx">精神上已经就是不是特别稳定了</span><span class="err">，</span><span class="nx">就是中中间经历了崩</span><span class="err">。</span><span class="nx">会大哭这样的一个过程</span>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...精神上已经就是不是特别稳定了，就是中中间经历了崩。会大哭这样的一个过程
 </code></pre></div>    </div>
   </li>
   <li>The text has issues with Chinese punctuation, such as missing periods and commas, which affect the clarity and readability of the content.</li>
@@ -336,9 +336,78 @@ def save_response_to_file(response, output_file):
 
 <h4 id="user-message-task-instructions">User message (task instructions):</h4>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="err">f</span><span class="s2">"Please correct any grammar errors, add punctuation, and fix the recognition errors in the following Chinese text:</span><span class="se">\n</span><span class="s2">{text}</span><span class="se">\n\n</span><span class="s2">For example, the host name is '傅适野，张之琪，冷建国', and there might be missing punctuation like commas and periods. Make the text clear and easy to understand."</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This message gives specific instructions for the task. It asks the model to correct grammar errors, add punctuation, and fix recognition errors in the input text. It also provides an example of correctly recognized host names and mentions possible issues with missing punctuation like commas and periods. This helps the model understand the desired output and ensures that the text is clear and easy to understand after the corrections are made.</p>
+
+<h4 id="corrected-text">Corrected Text</h4>
+<p>If we check the result from ChatGPT4, we can see the sentence:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"before_corrected"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"chinese"</span><span class="p">:</span><span class="w"> </span><span class="s2">"我们做这一期节目前就是我们三个因为最近各种新闻确实就是精神状况都觉得有点看特别需问好了"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"english"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We did this episode just the three of us because recently all kinds of news really made our mental states feel a bit particularly in need of asking if we are okay."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
-<p>This message gives specific instructions for the task. It asks the model to correct grammar errors, add punctuation, and fix recognition errors in the input text. It also provides an example of correctly recognized host names and mentions possible issues with missing punctuation like commas and periods. This helps the model understand the desired output and ensures that the text is clear and easy to understand after the corrections are made.</p>
+
+<p>that has been successfully corrected to:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"after_corrected"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"chinese"</span><span class="p">:</span><span class="w"> </span><span class="s2">"我们做这一期节目前，就是我们三个，傅适野、张之琪、冷建国，因为最近各种新闻确实就是精神状况都觉得有点看特别需问好了。"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"english"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Before we did this episode, it was just the three of us, Fu Shiye, Zhang Zhiqi, and Leng Jianguo, because recently all kinds of news really made our mental states feel a bit particularly in need of asking if we are okay."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<details><summary>The complete code for ChatGPT</summary>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">correct_text_folder</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">buffer_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">folder_path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+    <span class="n">text_files</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">folder_path</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s">"*.txt"</span><span class="p">))</span>
+    <span class="n">corrected_texts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">text_file</span> <span class="ow">in</span> <span class="nf">tqdm</span><span class="p">(</span><span class="n">text_files</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">"Correcting text files"</span><span class="p">):</span>
+        <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="s">"Wait for 3 seconds before the next request to OpenAI API"</span><span class="p">)</span>
+        <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="nf">read_file_contents</span><span class="p">(</span><span class="n">text_file</span><span class="p">)</span>
+        <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully reading text from </span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+        <span class="n">num_tokens</span> <span class="o">=</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">max_tokens</span> <span class="o">=</span> <span class="n">num_tokens</span> <span class="o">+</span> <span class="n">buffer_tokens</span>
+        <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Input text tokens: </span><span class="si">{</span><span class="n">num_tokens</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Max tokens: </span><span class="si">{</span><span class="n">max_tokens</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+        <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"system"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="s">"You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text."</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="s">"This text is from a podcast by '傅适野，张之琪，冷建国'. There might be missing punctuation, wrong words, and typos."</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="sa">f</span><span class="s">"Please correct any errors in the following Chinese text and make it clear and easy to understand:</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s">"</span><span class="p">},</span>
+        <span class="p">]</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="p">.</span><span class="n">ChatCompletion</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="s">"gpt-4-0314"</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+            <span class="n">max_tokens</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>
+            <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">stop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">message</span><span class="p">[</span><span class="s">'content'</span><span class="p">]</span>
+        <span class="n">generated_text</span> <span class="o">=</span> <span class="n">generated_text</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+        <span class="n">corrected_texts</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+
+        <span class="n">result_file_path</span> <span class="o">=</span> <span class="n">text_file</span><span class="p">.</span><span class="nf">with_name</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">stem</span><span class="si">}</span><span class="s">_restoration.txt"</span><span class="p">)</span>
+        <span class="nf">save_result</span><span class="p">(</span><span class="n">generated_text</span><span class="p">,</span> <span class="n">result_file_path</span><span class="p">)</span>
+        <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully writing result to </span><span class="si">{</span><span class="n">result_file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">corrected_texts</span><span class="p">)</span>
+    <span class="n">combined_file_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">/</span> <span class="s">"combined_corrected_text.txt"</span>
+    <span class="nf">save_result</span><span class="p">(</span><span class="n">combined_corrected_text</span><span class="p">,</span> <span class="n">combined_file_path</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully writing combined result to </span><span class="si">{</span><span class="n">combined_file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+</details>
 
 <h2 id="preprocessing-the-chinese-text-data">Preprocessing the Chinese Text Data</h2>
 <p>In this section, we will cover the following preprocessing techniques:</p>
@@ -400,7 +469,19 @@ def save_response_to_file(response, output_file):
 <span class="n">file_path</span> <span class="o">=</span> <span class="s">"path/to/your/txt_file.txt"</span>
 <span class="n">text</span> <span class="o">=</span> <span class="nf">read_text_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
 <span class="n">preprocessed_tokens</span> <span class="o">=</span> <span class="nf">preprocess_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Machine" /><category term="Learning,Podcasts" /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">Markdown guide</title><link href="https://wuyoscar.github.io/blog/2021/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown guide" /><published>2021-05-22T00:00:00+00:00</published><updated>2021-05-22T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2021/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2021/MarkdownGuide/"><![CDATA[<h2 id="equations">Equations</h2>
+</code></pre></div></div>
+
+<h3 id="analyzing-the-text-data">Analyzing the Text Data</h3>
+
+<h3 id="visualizing-the-results">Visualizing the Results</h3>
+<blockquote>
+  <p>add figure here</p>
+</blockquote>
+
+<h3 id="conclusion">Conclusion</h3>
+<blockquote>
+  <p>write conclusion here</p>
+</blockquote>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Machine" /><category term="Learning,Podcasts" /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">Markdown guide</title><link href="https://wuyoscar.github.io/blog/2021/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown guide" /><published>2021-05-22T00:00:00+00:00</published><updated>2021-05-22T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2021/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2021/MarkdownGuide/"><![CDATA[<h2 id="equations">Equations</h2>
 
 <p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/">MathJax 3</a> engine.
 You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>.

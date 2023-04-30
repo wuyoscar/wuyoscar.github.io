@@ -322,12 +322,12 @@ After successfully transcribing the audio content of the "Stochastic Volatility"
 However, upon examining the transcribed text, I noticed two major inaccuracies:
 
 1. In this text snippet, the names "服饰演", "张知其", and "冷见过" were incorrectly recognized. The correct names should be "傅适野", "张之琪", and "冷建国".
-```javascript
+```text
 各位听众朋友大家好，欢迎收听星期的随机波动，我是服饰演我是张知其我是冷见过你怎么还吃
 ```
 
 2. The Chinese text segmentation is not very accurate, leading to missing periods and commas, which makes the sentence meaning unclear.
-```javascript
+```text
 ...精神上已经就是不是特别稳定了，就是中中间经历了崩。会大哭这样的一个过程
 ```
 
@@ -353,10 +353,85 @@ This message provides the model with background information about the input text
 #### User message (task instructions):
 ```json
 {"role": "user", "content": f"Please correct any grammar errors, add punctuation, and fix the recognition errors in the following Chinese text:\n{text}\n\nFor example, the host name is '傅适野，张之琪，冷建国', and there might be missing punctuation like commas and periods. Make the text clear and easy to understand."}
-
 ```
+
 This message gives specific instructions for the task. It asks the model to correct grammar errors, add punctuation, and fix recognition errors in the input text. It also provides an example of correctly recognized host names and mentions possible issues with missing punctuation like commas and periods. This helps the model understand the desired output and ensures that the text is clear and easy to understand after the corrections are made.
   
+#### Corrected Text
+If we check the result from ChatGPT4, we can see the sentence:
+```json
+{
+    "before_corrected": {
+        "chinese": "我们做这一期节目前就是我们三个因为最近各种新闻确实就是精神状况都觉得有点看特别需问好了",
+        "english": "We did this episode just the three of us because recently all kinds of news really made our mental states feel a bit particularly in need of asking if we are okay."
+    }
+}
+
+```
+
+
+that has been successfully corrected to:
+
+```json
+{
+    "after_corrected": {
+        "chinese": "我们做这一期节目前，就是我们三个，傅适野、张之琪、冷建国，因为最近各种新闻确实就是精神状况都觉得有点看特别需问好了。",
+        "english": "Before we did this episode, it was just the three of us, Fu Shiye, Zhang Zhiqi, and Leng Jianguo, because recently all kinds of news really made our mental states feel a bit particularly in need of asking if we are okay."
+    }
+}
+```
+
+{% details The complete code for ChatGPT  %}  
+
+```python
+def correct_text_folder(folder_path, buffer_tokens=300, temperature=0.5) -> None:
+    folder_path = Path(folder_path)
+    text_files = list(folder_path.glob("*.txt"))
+    corrected_texts = []
+
+    for text_file in tqdm(text_files, desc="Correcting text files"):
+        logging.debug("Wait for 3 seconds before the next request to OpenAI API")
+        time.sleep(3)
+
+        text = read_file_contents(text_file)
+        logging.debug(f"Successfully reading text from {text_file.name}")
+
+        num_tokens = num_tokens_from_string(text)
+        max_tokens = num_tokens + buffer_tokens
+        logging.debug(f"Input text tokens: {num_tokens}")
+        logging.debug(f"Max tokens: {max_tokens}")
+
+        messages = [
+            {"role": "system", "content": "You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text."},
+            {"role": "user", "content": "This text is from a podcast by '傅适野，张之琪，冷建国'. There might be missing punctuation, wrong words, and typos."},
+            {"role": "user", "content": f"Please correct any errors in the following Chinese text and make it clear and easy to understand:\n{text}"},
+        ]
+
+        response = openai.ChatCompletion.create(
+            model="gpt-4-0314",
+            messages=messages,
+            max_tokens=3000,
+            n=1,
+            stop=None,
+            temperature=temperature,
+        )
+
+        generated_text = response.choices[0].message['content']
+        generated_text = generated_text.strip()
+        corrected_texts.append(generated_text)
+
+        result_file_path = text_file.with_name(f"{text_file.stem}_restoration.txt")
+        save_result(generated_text, result_file_path)
+        logging.debug(f"Successfully writing result to {result_file_path.name}")
+
+    combined_corrected_text = "\n".join(corrected_texts)
+    combined_file_path = folder_path / "combined_corrected_text.txt"
+    save_result(combined_corrected_text, combined_file_path)
+    logging.debug(f"Successfully writing combined result to {combined_file_path.name}")
+```
+{% enddetails %}
+
+
 
 ## Preprocessing the Chinese Text Data
 In this section, we will cover the following preprocessing techniques:
@@ -365,8 +440,6 @@ In this section, we will cover the following preprocessing techniques:
 3. Removing special characters and numbers
 4. Lowercasing
 5. Lemmatization
-
-
 
 ### Tokenization
 Tokenization is the process of breaking down the text into individual words or tokens. For Chinese text, we will use the Jieba library for tokenization.
@@ -423,3 +496,12 @@ file_path = "path/to/your/txt_file.txt"
 text = read_text_file(file_path)
 preprocessed_tokens = preprocess_chinese_text(text, stop_words)
 ```
+
+
+### Analyzing the Text Data
+
+### Visualizing the Results
+>add figure here
+
+### Conclusion
+>write conclusion here

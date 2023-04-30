@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-30T10:43:29+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-30T10:45:17+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we’ll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We’ll cover the entire process, from collecting the podcast data to visualizing the results. So, let’s get started!</p>
 
 <p><a href="https://www.stovol.club/">Stochastic Volatility</a> is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.</p>
@@ -151,18 +151,19 @@ speech_client.recognize(
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">results</span> <span class="p">{</span>
   <span class="n">alternatives</span> <span class="p">{</span>
     <span class="n">transcript</span><span class="p">:</span> <span class="s">"Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程"</span>
-    <span class="n">confidence</span><span class="p">:</span> <span class="mf">0.950523674</span>
-  <span class="p">}</span>
-  <span class="n">result_end_time</span> <span class="p">{</span>
-    <span class="n">seconds</span><span class="p">:</span> <span class="mi">13</span>
-    <span class="n">nanos</span><span class="p">:</span> <span class="mi">920000000</span>
-  <span class="p">}</span>
-  <span class="n">language_code</span><span class="p">:</span> <span class="s">"cmn-hans-cn"</span>
-<span class="p">}</span>
-<span class="n">total_billed_time</span> <span class="p">{</span>
-  <span class="n">seconds</span><span class="p">:</span> <span class="mi">14</span>
-<span class="p">}</span>
-<span class="n">request_id</span><span class="p">:</span> <span class="mi">5898031208</span><span class="c1">######
+    <span class="nf">english_script</span><span class="p">(</span><span class="n">self</span><span class="o">-</span><span class="n">added</span><span class="p">):</span> <span class="s">"Hello everyone, my name is Oscar, and I come from Chongqing, China. Nice to meet you, and I hope to start a learning journey with you here""
+    confidence: 0.950523674
+  }
+  result_end_time {
+    seconds: 13
+    nanos: 920000000
+  }
+  language_code: "</span><span class="n">cmn</span><span class="o">-</span><span class="n">hans</span><span class="o">-</span><span class="n">cn</span><span class="s">"
+}
+total_billed_time {
+  seconds: 14
+}
+request_id: 5898031208######
 </span></code></pre></div></div>
 
 <h3 id="transcribe-the-entire-episode">Transcribe the entire episode</h3>

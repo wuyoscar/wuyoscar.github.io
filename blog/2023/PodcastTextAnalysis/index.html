@@ -366,18 +366,19 @@ speech_client.recognize(
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">results</span> <span class="p">{</span>
   <span class="n">alternatives</span> <span class="p">{</span>
     <span class="n">transcript</span><span class="p">:</span> <span class="s">"Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程"</span>
-    <span class="n">confidence</span><span class="p">:</span> <span class="mf">0.950523674</span>
-  <span class="p">}</span>
-  <span class="n">result_end_time</span> <span class="p">{</span>
-    <span class="n">seconds</span><span class="p">:</span> <span class="mi">13</span>
-    <span class="n">nanos</span><span class="p">:</span> <span class="mi">920000000</span>
-  <span class="p">}</span>
-  <span class="n">language_code</span><span class="p">:</span> <span class="s">"cmn-hans-cn"</span>
-<span class="p">}</span>
-<span class="n">total_billed_time</span> <span class="p">{</span>
-  <span class="n">seconds</span><span class="p">:</span> <span class="mi">14</span>
-<span class="p">}</span>
-<span class="n">request_id</span><span class="p">:</span> <span class="mi">5898031208</span><span class="c1">######
+    <span class="nf">english_script</span><span class="p">(</span><span class="n">self</span><span class="o">-</span><span class="n">added</span><span class="p">):</span> <span class="s">"Hello everyone, my name is Oscar, and I come from Chongqing, China. Nice to meet you, and I hope to start a learning journey with you here""
+    confidence: 0.950523674
+  }
+  result_end_time {
+    seconds: 13
+    nanos: 920000000
+  }
+  language_code: "</span><span class="n">cmn</span><span class="o">-</span><span class="n">hans</span><span class="o">-</span><span class="n">cn</span><span class="s">"
+}
+total_billed_time {
+  seconds: 14
+}
+request_id: 5898031208######
 </span></code></pre></div></div>
 
 <h3 id="transcribe-the-entire-episode">Transcribe the entire episode</h3>

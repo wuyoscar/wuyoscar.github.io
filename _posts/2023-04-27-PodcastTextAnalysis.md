@@ -199,6 +199,7 @@ speech_client.recognize(
 results {
   alternatives {
     transcript: "Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程"
+    english_script(self-added): "Hello everyone, my name is Oscar, and I come from Chongqing, China. Nice to meet you, and I hope to start a learning journey with you here""
     confidence: 0.950523674
   }
   result_end_time {

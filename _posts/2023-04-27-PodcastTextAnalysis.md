@@ -23,7 +23,8 @@ toc:
   - name: Introduction
   - name: Collecting Podcast Data
   - name: Transcribing Podcast Audio to Text
-  - name: Data Preprocessing 
+  - name: Validating the Transcription Results
+  - name: Preprocessing the Chinese Text Data
   - name: Analyzing the Text Data
   - name: Visualizing the Results
   - name: Conclusion
@@ -41,7 +42,7 @@ _styles: >
     text-align: left;
     margin: 12px 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 10px;
   }
 ---
 
@@ -315,22 +316,57 @@ def save_response_to_file(response, output_file):
 </d-code>
 {% enddetails %}
 
-## Data Preprocessing 
-### Improving Punctuation in Transcribed Text
-Before diving into the preprocessing of the text data, it's important to address an issue with the speech-to-text output. The transcription process might not have recognized all punctuation correctly, leading to a suboptimal final text file. To improve the quality of the text data, we will perform an additional preprocessing step to correct the punctuation
-<div class="fake-img l-gutter">
-  <p>to be continue</p>
-</div>
+## Validating the Transcription Results via ChatGPT-4 Modwel
+After successfully transcribing the audio content of the "Stochastic Volatility" podcast into text using a speech-to-text API, we need to preprocess the text data. This step is crucial because it helps clean up and format the raw text, allowing our machine learning model to understand and process the content more effectively.
 
-### Preprocessing the Text Data
-After successfully transcribing the audio content of the 随机波动 (Stochastic Volatility) podcasts, the next step in our NLP and machine learning analysis is to preprocess the text data. This step is crucial as it helps to clean and format the raw text, making it easier for our machine learning models to understand and process the content effectively.
+However, upon examining the transcribed text, I noticed two major inaccuracies:
 
+1. In this text snippet, the names "服饰演", "张知其", and "冷见过" were incorrectly recognized. The correct names should be "傅适野", "张之琪", and "冷建国".
+```javascript
+各位听众朋友大家好，欢迎收听星期的随机波动，我是服饰演我是张知其我是冷见过你怎么还吃
+```
+
+2. The Chinese text segmentation is not very accurate, leading to missing periods and commas, which makes the sentence meaning unclear.
+```javascript
+...精神上已经就是不是特别稳定了，就是中中间经历了崩。会大哭这样的一个过程
+```
+
+3. The text has issues with Chinese punctuation, such as missing periods and commas, which affect the clarity and readability of the content.
+
+To address these issues, we can use ChatGPT, a deep learning model, to correct the recognition errors, add missing punctuation, and improve the overall quality of the text. Although many pre-trained models can perform these tasks, they are mostly designed for English text. In this case, we'll use ChatGPT, which can also handle Chinese text
+
+### Constructing useful Prompt 
+In your correct_text function, you are using ChatGPT to correct grammar errors, add punctuation, and fix recognition errors in the given Chinese text. The function takes the transcribed text as input, sends it to the ChatGPT API along with a prompt that explains the task, and then returns the corrected and punctuated text.
+
+#### System message:
+```json
+{"role": "system", "content": "You are a helpful assistant that corrects grammar errors, adds punctuation, and fixes recognition errors in Chinese text."}
+```
+This message sets the context for the ChatGPT model, informing it that its role is to be a helpful assistant, responsible for correcting grammar errors, adding punctuation, and fixing recognition errors in the Chinese text.
+#### User message (background information):
+```json
+{"role": "user", "content": "This text is from a cross-cultural podcast initiated by three female media professionals."}
+
+```
+This message provides the model with background information about the input text. By mentioning that the text comes from a cross-cultural podcast initiated by three female media professionals, you give the model additional context that might help improve the quality of the generated corrections and adjustments.
+
+#### User message (task instructions):
+```json
+{"role": "user", "content": f"Please correct any grammar errors, add punctuation, and fix the recognition errors in the following Chinese text:\n{text}\n\nFor example, the host name is '傅适野，张之琪，冷建国', and there might be missing punctuation like commas and periods. Make the text clear and easy to understand."}
+
+```
+This message gives specific instructions for the task. It asks the model to correct grammar errors, add punctuation, and fix recognition errors in the input text. It also provides an example of correctly recognized host names and mentions possible issues with missing punctuation like commas and periods. This helps the model understand the desired output and ensures that the text is clear and easy to understand after the corrections are made.
+  
+
+## Preprocessing the Chinese Text Data
 In this section, we will cover the following preprocessing techniques:
 1. Tokenization
 2. Removing stop words
 3. Removing special characters and numbers
 4. Lowercasing
 5. Lemmatization
+
+
 
 ### Tokenization
 Tokenization is the process of breaking down the text into individual words or tokens. For Chinese text, we will use the Jieba library for tokenization.

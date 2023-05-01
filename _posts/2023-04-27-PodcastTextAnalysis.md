@@ -4,8 +4,8 @@ title: 随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learni
 description: Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.
 giscus_comments: true
 date: 2023-04-27
-tags: 
-categories: NLP, Machine Learning,Podcasts
+tags: Speech-to-text, Chinese-NLP, ChatGPT4, NLP, Machine Learning, ChatGPT,
+categories: NLP, Tools, API
 toc: true
 
 

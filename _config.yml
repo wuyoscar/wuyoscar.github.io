@@ -241,7 +241,7 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: [Markdown, Python, Math, Coding, Programming Tips, Set-up, Learning, Education, Problem Solving, Software Development, Data Science, Jupyter Notebook, Algorithms, GitHub] # this tags will be dispalyed on the front page of your blog
+display_tags: [Math, Machine Learning, NLP, GitHub, API, Tools] # this tags will be dispalyed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

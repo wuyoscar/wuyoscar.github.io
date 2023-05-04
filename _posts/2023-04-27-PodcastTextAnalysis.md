@@ -4,7 +4,7 @@ title: 随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learni
 description: Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.
 giscus_comments: true
 date: 2023-04-27
-tags: Speech-to-text, Chinese-NLP, ChatGPT4, NLP, Machine Learning, ChatGPT,
+tags: Speech-to-text, Chinese-NLP, ChatGPT4, NLP, Machine Learning, ChatGPT
 categories: NLP, Tools, API
 toc: true
 
@@ -234,7 +234,7 @@ Table below is Reference for selected [parameters](https://cloud.google.com/spee
 |`credentials_path`| path to service account credential | Google Cloud Variable|
 
 {% details Wrap everything together and custmoize configuration based on content%}  
-<d-code language='python'>
+``` python
 from google.cloud import speech_v1p1beta1 as speech
 from google.cloud import storage
 import os
@@ -314,7 +314,7 @@ def save_response_to_file(response, output_file):
                 f.write(transcript + '\n')
     print(f"Transcript saved to {output_file}")
 
-</d-code>
+```
 {% enddetails %}
 
 ## Validating the Transcription Results via ChatGPT-4 Modwel

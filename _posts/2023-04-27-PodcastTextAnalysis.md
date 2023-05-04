@@ -69,20 +69,20 @@ Podcasts are a popular form of media, offering listeners the opportunity to lear
 At Stochastic Volatility, we have selected three episodes with themes related to ``Feminism`` for analysis. These episodes cover a range of topics related to women, such as gender equality, feminism, and women's roles in society. By using NLP and machine learning techniques to analyze the text data of these episodes, we hope to gain deeper insights into the discussions and perspectives presented on these important topics.
 
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0 mb-4">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
         <a href="https://www.stovol.club/096" target="_blank">
-            <img src="/assets/img/2023-04/随机波动_96.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+                {% include figure.html path="/assets/img/2023-04/随机波动_96.png" title="随机波动_96" class="img-fluid rounded z-depth-1" %}
         </a>
     </div>
-    <div class="col-sm mt-3 mt-md-0 mb-4">
+    <div class="col-sm mt-3 mt-md-0">
         <a href="https://www.stovol.club/094" target="_blank">
-            <img src="/assets/img/2023-04/随机波动_94.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+                {% include figure.html path="/assets/img/2023-04/随机波动_94.png" title="随机波动_94" class="img-fluid rounded z-depth-1" %}
         </a>
     </div>
-    <div class="col-sm mt-3 mt-md-0 mb-4">
+    <div class="col-sm mt-3 mt-md-0">
         <a href="https://www.stovol.club/085" target="_blank">
-            <img src="/assets/img/2023-04/随机波动_85.png" class="img-fluid rounded z-depth-1" data-action="zoom" />
+                {% include figure.html path="/assets/img/2023-04/随机波动_85.png" title="随机波动_85" class="img-fluid rounded z-depth-1" %}
         </a>
     </div>
 </div>

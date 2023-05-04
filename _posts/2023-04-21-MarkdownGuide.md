@@ -3,7 +3,7 @@ layout: distill
 title: Markdown guide
 description: an example of a distill-style blog post and main elements
 giscus_comments: true
-date: 2021-05-22
+date: 2023-04-22
 
 authors:
   - name: Al-folio

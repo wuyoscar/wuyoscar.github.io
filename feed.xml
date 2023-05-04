@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-01T10:08:13+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://wuyoscar.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wuyoscar.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-04T15:08:51+00:00</updated><id>https://wuyoscar.github.io/feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning</title><link href="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/" rel="alternate" type="text/html" title="随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning" /><published>2023-04-27T00:00:00+00:00</published><updated>2023-04-27T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2023/PodcastTextAnalysis/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Podcasts are a popular form of media, offering listeners the opportunity to learn, be entertained, and stay informed. However, analyzing a podcast can be a time-consuming and challenging task, especially if you have a lot of episodes to review. In this blog post, we’ll explore how to use natural language processing (NLP) and machine learning to analyze a podcast. By applying these techniques, we can gain insights into the topics discussed, the emotions expressed, and the overall content of the podcast. We’ll cover the entire process, from collecting the podcast data to visualizing the results. So, let’s get started!</p>
 
 <p><a href="https://www.stovol.club/">Stochastic Volatility</a> is a cross-cultural podcast initiated by three female media professionals. Today, I will use the Stochastic Volatility as an example to show you how to analyze a podcast using NLP and machine learning techniques.</p>
@@ -220,87 +220,86 @@ request_id: 5898031208######
 </table>
 
 <details><summary>Wrap everything together and custmoize configuration based on content</summary>
-<d-code language="python">
-from google.cloud import speech_v1p1beta1 as speech
-from google.cloud import storage
-import os
-import yaml
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">google.cloud</span> <span class="kn">import</span> <span class="n">speech_v1p1beta1</span> <span class="k">as</span> <span class="n">speech</span>
+<span class="kn">from</span> <span class="n">google.cloud</span> <span class="kn">import</span> <span class="n">storage</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">yaml</span>
 
-credentials_path = "path/to/your/credentials.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
+<span class="n">credentials_path</span> <span class="o">=</span> <span class="s">"path/to/your/credentials.json"</span>
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'GOOGLE_APPLICATION_CREDENTIALS'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credentials_path</span>
 
-load_custom_phrases_path = 'path/to/your/custom_phrases.yaml'
-project_id = "your-project-id"
-location = "global"
-custom_class_id = "mycustomclass01"
-phrase_set_id = "myphraseset01"
-
-
-def load_custom_phrases(file_path=load_custom_phrases_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return yaml.safe_load(file)
+<span class="n">load_custom_phrases_path</span> <span class="o">=</span> <span class="s">'path/to/your/custom_phrases.yaml'</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="s">"your-project-id"</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s">"global"</span>
+<span class="n">custom_class_id</span> <span class="o">=</span> <span class="s">"mycustomclass01"</span>
+<span class="n">phrase_set_id</span> <span class="o">=</span> <span class="s">"myphraseset01"</span>
 
 
-
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    """Uploads a file to the bucket."""
-    storage_client = storage.Client.from_service_account_json(credentials_path)
-    bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
-
-    blob.upload_from_filename(source_file_name)
-    print(f"File {source_file_name} uploaded to {destination_blob_name}.")
+<span class="k">def</span> <span class="nf">load_custom_phrases</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">load_custom_phrases_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">yaml</span><span class="p">.</span><span class="nf">safe_load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
 
 
-def transcribe_audio_file(bucket_name, file_path, phrases):
-    destination_blob_name = os.path.basename(file_path)
-    storage_client = storage.Client.from_service_account_json(credentials_path)
-    bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
 
-    if not blob.exists():
-        upload_blob(bucket_name, file_path, destination_blob_name)
-    else:
-        print(f"File {destination_blob_name} already exists in the bucket.")
+<span class="k">def</span> <span class="nf">upload_blob</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">source_file_name</span><span class="p">,</span> <span class="n">destination_blob_name</span><span class="p">):</span>
+    <span class="s">"""Uploads a file to the bucket."""</span>
+    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="nf">from_service_account_json</span><span class="p">(</span><span class="n">credentials_path</span><span class="p">)</span>
+    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="nf">get_bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="nf">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
 
-    client = speech.SpeechClient.from_service_account_json(credentials_path)
+    <span class="n">blob</span><span class="p">.</span><span class="nf">upload_from_filename</span><span class="p">(</span><span class="n">source_file_name</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"File </span><span class="si">{</span><span class="n">source_file_name</span><span class="si">}</span><span class="s"> uploaded to </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
 
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.MP3,
-        sample_rate_hertz=44100,
-        audio_channel_count=3,
-        language_code="zh-CN",
-        enable_automatic_punctuation=True,
-        enable_separate_recognition_per_channel=True,
-        use_enhanced=True,
-        enable_speaker_diarization=True,
-        diarization_speaker_count=3,
-        speech_contexts=[{"phrases": phrases}],
-    )
 
-    storage_uri = f"gs://{bucket_name}/{destination_blob_name}"
-    audio = speech.RecognitionAudio(uri=storage_uri)
+<span class="k">def</span> <span class="nf">transcribe_audio_file</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">phrases</span><span class="p">):</span>
+    <span class="n">destination_blob_name</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="nf">from_service_account_json</span><span class="p">(</span><span class="n">credentials_path</span><span class="p">)</span>
+    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="nf">get_bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="nf">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
 
-    operation = client.long_running_recognize(config=config, audio=audio)
-    print("Waiting for operation to complete...")
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">blob</span><span class="p">.</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="nf">upload_blob</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">destination_blob_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"File </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s"> already exists in the bucket."</span><span class="p">)</span>
 
-    timeout_seconds = 7200
-    response = operation.result(timeout=timeout_seconds)
-    return response
+    <span class="n">client</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="n">SpeechClient</span><span class="p">.</span><span class="nf">from_service_account_json</span><span class="p">(</span><span class="n">credentials_path</span><span class="p">)</span>
 
-def save_response_to_file(response, output_file):
-    with open(output_file, 'w', encoding='utf-8') as f:
-        for index, result in enumerate(response.results):
-            # Choose the first alternative (most likely) from the list of alternatives
-            alternative = result.alternatives[0]
-            transcript = alternative.transcript
-             #skip empty string and only save the frist transcript
-            if transcript.strip() and index % 2 != 0 :
-                print(transcript.strip())
-                f.write(transcript + '\n')
-    print(f"Transcript saved to {output_file}")
+    <span class="n">config</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">RecognitionConfig</span><span class="p">(</span>
+        <span class="n">encoding</span><span class="o">=</span><span class="n">speech</span><span class="p">.</span><span class="n">RecognitionConfig</span><span class="p">.</span><span class="n">AudioEncoding</span><span class="p">.</span><span class="n">MP3</span><span class="p">,</span>
+        <span class="n">sample_rate_hertz</span><span class="o">=</span><span class="mi">44100</span><span class="p">,</span>
+        <span class="n">audio_channel_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">language_code</span><span class="o">=</span><span class="s">"zh-CN"</span><span class="p">,</span>
+        <span class="n">enable_automatic_punctuation</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">enable_separate_recognition_per_channel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">use_enhanced</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">enable_speaker_diarization</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">diarization_speaker_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">speech_contexts</span><span class="o">=</span><span class="p">[{</span><span class="s">"phrases"</span><span class="p">:</span> <span class="n">phrases</span><span class="p">}],</span>
+    <span class="p">)</span>
 
-</d-code>
+    <span class="n">storage_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"gs://</span><span class="si">{</span><span class="n">bucket_name</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s">"</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">RecognitionAudio</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">storage_uri</span><span class="p">)</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">long_running_recognize</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">audio</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Waiting for operation to complete..."</span><span class="p">)</span>
+
+    <span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">7200</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">operation</span><span class="p">.</span><span class="nf">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_seconds</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">def</span> <span class="nf">save_response_to_file</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">results</span><span class="p">):</span>
+            <span class="c1"># Choose the first alternative (most likely) from the list of alternatives
+</span>            <span class="n">alternative</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">alternatives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">transcript</span> <span class="o">=</span> <span class="n">alternative</span><span class="p">.</span><span class="n">transcript</span>
+             <span class="c1">#skip empty string and only save the frist transcript
+</span>            <span class="k">if</span> <span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">())</span>
+                <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">transcript</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Transcript saved to </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+</code></pre></div></div>
 </details>
 
 <h2 id="validating-the-transcription-results-via-chatgpt-4-modwel">Validating the Transcription Results via ChatGPT-4 Modwel</h2>
@@ -482,7 +481,7 @@ def save_response_to_file(response, output_file):
 <h3 id="conclusion">Conclusion</h3>
 <blockquote>
   <p>write conclusion here</p>
-</blockquote>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Tools," /><category term="API" /><category term="Speech-to-text," /><category term="Chinese-NLP," /><category term="ChatGPT4," /><category term="NLP," /><category term="Machine" /><category term="Learning," /><category term="ChatGPT," /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">Markdown guide</title><link href="https://wuyoscar.github.io/blog/2021/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown guide" /><published>2021-05-22T00:00:00+00:00</published><updated>2021-05-22T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2021/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2021/MarkdownGuide/"><![CDATA[<h2 id="equations">Equations</h2>
+</blockquote>]]></content><author><name>Oscar Wu</name></author><category term="NLP," /><category term="Tools," /><category term="API" /><category term="Speech-to-text," /><category term="Chinese-NLP," /><category term="ChatGPT4," /><category term="NLP," /><category term="Machine" /><category term="Learning," /><category term="ChatGPT" /><summary type="html"><![CDATA[Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.]]></summary></entry><entry><title type="html">a post with giscus comments</title><link href="https://wuyoscar.github.io/blog/2022/giscus-comments/" rel="alternate" type="text/html" title="a post with giscus comments" /><published>2022-12-10T15:59:00+00:00</published><updated>2022-12-10T15:59:00+00:00</updated><id>https://wuyoscar.github.io/blog/2022/giscus-comments</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2022/giscus-comments/"><![CDATA[<p>This post shows how to add GISCUS comments.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="external-services" /><summary type="html"><![CDATA[an example of a blog post with giscus comments]]></summary></entry><entry><title type="html">Markdown guide</title><link href="https://wuyoscar.github.io/blog/2021/MarkdownGuide/" rel="alternate" type="text/html" title="Markdown guide" /><published>2021-05-22T00:00:00+00:00</published><updated>2021-05-22T00:00:00+00:00</updated><id>https://wuyoscar.github.io/blog/2021/MarkdownGuide</id><content type="html" xml:base="https://wuyoscar.github.io/blog/2021/MarkdownGuide/"><![CDATA[<h2 id="equations">Equations</h2>
 
 <p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/">MathJax 3</a> engine.
 You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>.

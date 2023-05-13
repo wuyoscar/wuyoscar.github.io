@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: 随机波动 (StochasticVolatility) Analysis Using NLP and Machine Learning
+title: Podcasts Analysis Using NLP and Machine Learning
 description: Uncover the power of natural language processing (NLP) and machine learning techniques in analyzing 随机波动 Stochastic Volatility podcasts. Delve into the complete workflow, from data collection and audio transcription to text preprocessing, analysis, and visualization, to gain valuable insights on podcast topics, emotions, and overall content.
 giscus_comments: true
 date: 2023-04-27
@@ -61,6 +61,10 @@ Podcasts are a popular form of media, offering listeners the opportunity to lear
       </a>
     </figure>
   </div>
+
+
+
+
 
 
 ## Collecting Podcast Data
@@ -385,50 +389,174 @@ that has been successfully corrected to:
 {% details The complete code for ChatGPT  %}  
 
 ```python
-def correct_text_folder(folder_path, buffer_tokens=300, temperature=0.5) -> None:
-    folder_path = Path(folder_path)
-    text_files = list(folder_path.glob("*.txt"))
-    corrected_texts = []
+import json
+import string
+from pathlib import Path
+import openai
+import jieba
+from dotenv import load_dotenv
+import os
+import tiktoken
+import logging
+import time
+from tqdm import tqdm
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_random_exponential,
+)
 
-    for text_file in tqdm(text_files, desc="Correcting text files"):
-        logging.debug("Wait for 3 seconds before the next request to OpenAI API")
-        time.sleep(3)
 
-        text = read_file_contents(text_file)
-        logging.debug(f"Successfully reading text from {text_file.name}")
+# Set up logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] - %(message)s')
+logger = logging.getLogger(__name__)
 
-        num_tokens = num_tokens_from_string(text)
-        max_tokens = num_tokens + buffer_tokens
-        logging.debug(f"Input text tokens: {num_tokens}")
-        logging.debug(f"Max tokens: {max_tokens}")
 
-        messages = [
-            {"role": "system", "content": "You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text."},
-            {"role": "user", "content": "This text is from a podcast by '傅适野，张之琪，冷建国'. There might be missing punctuation, wrong words, and typos."},
-            {"role": "user", "content": f"Please correct any errors in the following Chinese text and make it clear and easy to understand:\n{text}"},
-        ]
+# Define paths variables
+current_path = Path.cwd()
+main_path = current_path.parent
+data_path = main_path / "data"
+env_path = main_path / ".env"
 
-        response = openai.ChatCompletion.create(
-            model="gpt-4-0314",
-            messages=messages,
-            max_tokens=3000,
-            n=1,
-            stop=None,
-            temperature=temperature,
-        )
+# Load environment variables from .env file
+load_dotenv(env_path)
 
-        generated_text = response.choices[0].message['content']
-        generated_text = generated_text.strip()
-        corrected_texts.append(generated_text)
+# Get OpenAI API key from environment variables
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
+# Use OpenAI API key to authenticate with OpenAI
+openai.api_key = openai_api_key
+
+# Define punctuation sets
+chinese_punctuation = set("。，！？【】（）<>《》“”‘’；：——…～·")
+english_punctuation = set(string.punctuation)
+
+def read_file_contents(file_path):
+    """Read a text or JSON file and return its contents as a string or dictionary."""
+    file_path = Path(file_path)
+    logger.debug(f"Reading file {file_path.name}")
+    with open(file_path, "r", encoding="utf-8") as f:
+        if file_path.suffix == ".txt":
+            contents = f.read().replace("\n", "").replace(" ", "") # read the contents of a text file and remove newlines and spaces
+        elif file_path.suffix == ".json":
+            contents = json.load(f) # read the contents of a JSON file
+        else:
+            raise ValueError("File type not supported. Only .txt and .json files are supported.")
+    return contents
+
+def save_result(result, file_path, line_length: int=50):
+    """Save the result as a plain text file with no more than 20 characters per line."""
+    with open(file_path, "w", encoding="utf-8") as f:
+        for i in range(0, len(result), line_length):
+            line = result[i:i+line_length]
+            f.write(line + "\n")
+
+
+
+
+def num_tokens_from_string(string: str, encoding_name: str = 'cl100k_base') -> int:
+    """Returns the number of tokens in a text string."""
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
+
+
+
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
+def completion_with_backoff(**kwargs):
+    return openai.ChatCompletion.create(**kwargs)
+
+
+
+def correct_text_file(file_path, buffer_tokens=300,  save_corrected_file:bool=True , model_token_limit:int=8192) -> str:
+    text_file = Path(file_path)
+
+    logger.debug("Wait for 2 seconds before the next request to OpenAI API")
+    time.sleep(2)
+
+    text = read_file_contents(text_file)
+    logger.debug(f"Successfully reading text from {text_file}")
+
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text."},
+        {"role": "user", "content": "This text is from a podcast by '傅适野，张之琪，冷建国'. There might be missing punctuation, wrong words, and typos."},
+        {"role": "user", "content": f"Please correct any errors in the following Chinese text based on context and only return corrected text:\n{text}"},
+    ]
+    
+    ## Calculate the number of tokens based on the messages list
+
+    num_tokens = num_tokens_from_string(' '.join([message['content'] for message in messages]))
+    generated_text_token = num_tokens + buffer_tokens
+    logger.debug(f"Input text tokens: {num_tokens}")
+    logger.debug(f"Max generated tokens set as {generated_text_token}")
+    #check token limit
+    if (generated_text_token + num_tokens) > model_token_limit:
+        logger.debug(f"Token limit exceeded. Please reduce the number of tokens to below {model_token_limit}.")
+        return None
+
+    response = completion_with_backoff(
+        model="gpt-4-0314",
+        messages=messages,
+        max_tokens=generated_text_token
+    )
+    generated_text = response.choices[0]["message"]['content']
+    generated_text = generated_text.strip()
+
+    
+    if save_corrected_file:
         result_file_path = text_file.with_name(f"{text_file.stem}_restoration.txt")
         save_result(generated_text, result_file_path)
-        logging.debug(f"Successfully writing result to {result_file_path.name}")
+        logger.debug(f"Successfully writing result to {result_file_path.name}")
 
+    logger.debug(f"Successfully processing text from {text_file.name}")
+    return generated_text
+ 
+    
+def text_restoration(filename ,chunk_size: int = 600):
+    """Tokenize Chinese text using jieba, remove punctuation, and write each chunk to a separate file."""
+    filename = Path(filename)
+    content = read_file_contents(filename)
+    #remove all punctuation    
+    tokens = [token.strip() for token in jieba.cut(content, cut_all=False) if token not in chinese_punctuation and token not in english_punctuation]
+    restoration_text = "".join(tokens)
+    tokens_res = jieba.lcut(restoration_text)
+    
+    #split into chunks
+    chunks = [tokens_res[i:i+chunk_size] for i in range(0, len(tokens_res), chunk_size)]
+    logger.debug(f"Splitting {filename.name} into {len(chunks)} chunks")
+    
+    # Create the output directory if it doesn't exist
+    output_dir = data_path / filename.stem
+    Path(output_dir).mkdir(exist_ok=True)
+    file_stem = filename.stem
+    
+    # Write each chunk to a separate file
+    corrected_texts = []
+    for i, chunk in enumerate(chunks):
+        chunk_text = "".join(chunk)
+        chunk_filename = output_dir/f"{file_stem}_chunk_{i+1}.txt"
+        
+        logger.debug(f"Writing chunk {i+1} to {chunk_filename}")
+        
+        save_result(chunk_text, chunk_filename)
+        
+        generated_text = correct_text_file(chunk_filename, save_corrected_file=True)
+        corrected_texts.append(generated_text)
+    
     combined_corrected_text = "\n".join(corrected_texts)
-    combined_file_path = folder_path / "combined_corrected_text.txt"
+    combined_corrected_text = combined_corrected_text.replace("\n", "")  # remove all newlines
+    # remove all unnecessary spaces
+    combined_corrected_text = ' '.join(combined_corrected_text.split())
+
+    combined_file_path = f"output_dir / {file_stem}_restoration.txt"
     save_result(combined_corrected_text, combined_file_path)
-    logging.debug(f"Successfully writing combined result to {combined_file_path.name}")
+    
+
+
+if __name__ == "__main__":
+
+    filename = ""
+    text_restoration(filename, chunk_size=700)
 ```
 {% enddetails %}
 
@@ -453,16 +581,14 @@ def tokenize_chinese_text(text):
 ```
 
 ### Removing stop words
-Stop words are common words that do not carry much meaning and can be removed from the text to reduce noise. You can either create a custom list of Chinese stop words or find an existing list online. Load the stop words into a Python set for efficient filtering.
+Stop words are common words that do not carry much meaning and can be removed from the text to reduce noise. You can either create a custom list of Chinese stop words or find an existing list online. Load the stop words into a Python set for efficient filtering. Here we will use the stop words list from [hit_stopwords](https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt)
 
 ```python
-def load_stop_words(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        stop_words = set(line.strip() for line in file)
-    return stop_words
+import requests
 
-stop_words_file_path = 'path/to/chinese_stop_words.txt'
-stop_words = load_stop_words(stop_words_file_path)
+url = 'https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt'
+response = requests.get(url)
+stopwords = response.text.split('\n')
 
 def remove_stop_words(tokens, stop_words):
     cleaned_tokens = [word for word in tokens if word not in stop_words]
@@ -481,6 +607,24 @@ def remove_special_characters_and_numbers(tokens):
 ### Preprocessing Pipeline
 Now, we will create a preprocessing pipeline that combines all the above techniques. The pipeline takes raw Chinese text as input and returns cleaned tokens.
 ```python
+import requests
+
+url = 'https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt'
+response = requests.get(url)
+stop_words = response.text.split('\n')
+
+import jieba
+def tokenize_chinese_text(text):
+    tokens = jieba.lcut(text)
+    return tokens
+def remove_stop_words(tokens, stop_words):
+    cleaned_tokens = [word for word in tokens if word not in stop_words]
+    return cleaned_tokens
+
+def remove_special_characters_and_numbers(tokens):
+    cleaned_tokens = [word for word in tokens if word.strip() and not word.isdigit()]
+    return cleaned_tokens
+
 def preprocess_chinese_text(text, stop_words):
     # Tokenize
     tokens = tokenize_chinese_text(text)
@@ -493,9 +637,10 @@ def preprocess_chinese_text(text, stop_words):
 
     return cleaned_tokens
 
-file_path = "path/to/your/txt_file.txt"
-text = read_text_file(file_path)
-preprocessed_tokens = preprocess_chinese_text(text, stop_words)
+
+with open(filename, 'r', encoding='utf-8') as f:
+   content = f.read()
+   process_content = preprocess_chinese_text(content, stop_words = stop_words)
 ```
 
 

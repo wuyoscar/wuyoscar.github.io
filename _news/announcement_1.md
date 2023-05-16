@@ -1,71 +1,39 @@
 ---
 layout: post
-title: First Joint WorkShop on Multi-lingual COVID-19 Fake News Detection and Intervention
-date: 2022-04-21 13:00-17:00 AEDT
+title: Second Joint WorkShop on Multi-lingual COVID-19 Fake News Detection and Intervention
+date: 2020-10-28 07:00 - 16:30 AEDT
 inline: false
-related_posts: true
+related_posts: false
 ---
+<blockquote>
+In our second Deakin-UGM joint research workshop on COVID-19 Fake News Detection and Intervention, we were pleased to invite colleagues, researchers, Fake news experts and stakeholders to discuss combating fake news amid COVID-19 uncertainties and challenges. Our research team shared current achievements in webinars, such as datasets collection, and fake news detection methodologies.
+</blockquote>
+***
 
-This theme implements a built-in Jekyll feature, the use of Rouge, for syntax highlighting.
-It supports more than 100 languages.
-This example is in C++.
-All you have to do is wrap your code in markdown code tags:
+## Session #1: Opening (11:00 AM -12:30 PM), Chair by Xiao
 
-````markdown
-```c++
-code code code
-```
-````
+- Welcome address by Professor Julie Owens, Deputy Vice-Chancellor of Research at Deakin University, Australia
+- Opening speech by Ignatius Susatyo Wijoyo, Vice Rector for Research, Business Development, and Partnerships, UGM, Indonesia.
+- Project outcome report by Research Co-Lead, Associate Professor Jianxin Li (Deakin) and Dr. Hilya Mudrika Arini (UGM) 
 
-```c++
-int main(int argc, char const \*argv[])
-{
-    string myString;
+*Lunch Break (12:30 PM – 13:30 PM )*
 
-    cout << "input a string: ";
-    getline(cin, myString);
-    int length = myString.length();
+### Session #2: Invited Talks (13:30 – 16:00 ), Chair by Jianxin and Hilya 
 
-    char charArray = new char * [length];
+- Prof. Widodo Muktiyo, Expert Staff of Minister Communications and Informatics, Ministry of communications and informatics, Indonesia. 
+- Ms Mutiara Anissa, Science Communicator, Founder of Pandemic Talks, Indonesia. 
+  - Topic: Coronavirus Fake News: How @pandemictalk Instagram Platform is Tackling Hoax and Misinformation
+- Dr Siqin Wang, JSPS Research Fellow, University of Tokyo, Japan; Associate Chair, Spatial Data Lab, Center of Geographic Analysis, Harvard University, USA. 
+  - Topic: People as sensors: the premise of using social media data in computational social science study.
+- Dr Xiao Huang, Assistant Professor at the University of Arkansas, USA. 
+  - Topic: Social media mining under the COVID-19 context: Progress, challenges, and opportunities.
+- Dr Chunyang Chen, Senior Lecturer, Faculty of Information Technology, Monash University, Australia. 
+  - Topic: Cut Through “Infodemic” By Understanding And Supplying People’s Information Needs 
 
-    charArray = myString;
-    for(int i = 0; i < length; ++i){
-        cout << charArray[i] << " ";
-    }
+### Session #3:  Keynote and Open Discussion (15:00  – 16:00 ), Chair by Xiao
 
-    return 0;
-}
-```
+- Professor Catherine Bennett, Alfred Deakin Professor and Chair in Epidemiology, School of Health and Social Development, Deakin University, Australia. 
+  - Topic: D/Misinformation during the pandemic: how good and bad intent contributed to the problem and the impact.
 
-By default, it does not display line numbers. If you want to display line numbers for every code block, you can set `kramdown.syntax_highlighter_opts.block.line_numbers` to true in your `_config.yml` file.
-
-If you want to display line numbers for a specific code block, all you have to do is wrap your code in a liquid tag:
-
-{% raw  %}
-{% highlight c++ linenos %}  <br/> code code code <br/> {% endhighlight %}
-{% endraw %}
-
-The keyword `linenos` triggers display of line numbers.
-Produces something like this:
-
-{% highlight c++ linenos %}
-
-int main(int argc, char const \*argv[])
-{
-    string myString;
-
-    cout << "input a string: ";
-    getline(cin, myString);
-    int length = myString.length();
-
-    char charArray = new char * [length];
-
-    charArray = myString;
-    for(int i = 0; i < length; ++i){
-        cout << charArray[i] << " ";
-    }
-
-    return 0;
-}
-
-{% endhighlight %}
+### Conclusion and Networking: 16:00 -16:30 
+***

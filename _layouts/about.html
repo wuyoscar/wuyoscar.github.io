@@ -44,20 +44,26 @@ layout: default
 
           <!-- News -->
           {% if page.news -%}
-            <h3><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h3>
+            <h4 style="text-align: center;"><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h4>
             {%- include news.html %}
           {%- endif %}
 
           <!-- Latest posts -->
           {% if page.latest_posts -%}
-            <h3><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Latest Posts</a></h3>
+            <h4 style="text-align: center;"><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Latest Posts</a></h4>
             {%- include latest_posts.html %}
           {%- endif %}
 
           <!-- Selected papers -->
           {% if page.selected_papers -%}
-            <h3><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected Publications</a></h3>
+            <h4 style="text-align: center;"><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected Publications</a></h4 >
             {%- include selected_papers.html %}
+          {%- endif %}
+
+          <!-- Selected projects -->
+          {% if page.selected_projects -%}
+            <h4 style="text-align: center;"><a href="{{ '/projects/' | relative_url }}" style="color: inherit;">Selected Projects</a></h4>
+            {%- include selected_projects.html %} 
           {%- endif %}
 
           <!-- Social -->

@@ -1,10 +1,10 @@
 ---
 layout: distill
-title: Deakin Capstone Project - Melbourne Open Data Playground 
+title: Deakin Student Capstone Project 
 description: Melbourne Open Data Playground (MOP) is a capstone project sponsored by Deakin University. The project elegantly integrates data processing, geo-filtering, visualization, and search functionalities. It's designed to enable live and historic trend inspection of parking sensors, simplifying and enhancing data exploration. 
-img: assets/img/project/DISC_project.png
+img: assets/img/project/disc.png
 redirect:  
-importance: 3
+importance: 6
 category: Research Project
 ---
 
@@ -73,5 +73,14 @@ This presentation delves into our pedestrian count analysis, showcasing the powe
 </div>
 
 
-### Our Project on GitHub
-{% include single_repo.html username='wuyoscar' repo='MOP' %}
+
+
+### Our Project on Youtube 
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/g4zxsyCLo9A" allowfullscreen></iframe>
+</div>
+
+
+### Our Project on [GitHub](https://github.com/Chameleon-company/MOP/tree/master/opendataapi)
+

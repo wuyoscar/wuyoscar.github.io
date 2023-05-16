@@ -21,7 +21,7 @@
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:100,300,400,500,700%7CMaterial+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
 
     <!-- Code Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
@@ -410,15 +410,15 @@ speech_client.recognize(
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">results</span> <span class="p">{</span>
   <span class="n">alternatives</span> <span class="p">{</span>
-    <span class="n">transcript</span><span class="p">:</span> <span class="s">"Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程"</span>
-    <span class="nf">english_script</span><span class="p">(</span><span class="n">self</span><span class="o">-</span><span class="n">added</span><span class="p">):</span> <span class="s">"Hello everyone, my name is Oscar, and I come from Chongqing, China. Nice to meet you, and I hope to start a learning journey with you here""
+    <span class="n">transcript</span><span class="p">:</span> <span class="sh">"</span><span class="s">Hello大家好我叫Oscar,我来自中国重庆很高兴认识大家,在这里希望跟大家开始一段学习旅程</span><span class="sh">"</span>
+    <span class="nf">english_script</span><span class="p">(</span><span class="n">self</span><span class="o">-</span><span class="n">added</span><span class="p">):</span> <span class="sh">"</span><span class="s">Hello everyone, my name is Oscar, and I come from Chongqing, China. Nice to meet you, and I hope to start a learning journey with you here</span><span class="sh">""</span><span class="s">
     confidence: 0.950523674
   }
   result_end_time {
     seconds: 13
     nanos: 920000000
   }
-  language_code: "</span><span class="n">cmn</span><span class="o">-</span><span class="n">hans</span><span class="o">-</span><span class="n">cn</span><span class="s">"
+  language_code: </span><span class="sh">"</span><span class="n">cmn</span><span class="o">-</span><span class="n">hans</span><span class="o">-</span><span class="n">cn</span><span class="sh">"</span><span class="s">
 }
 total_billed_time {
   seconds: 14
@@ -487,30 +487,30 @@ request_id: 5898031208######
 <span class="kn">import</span> <span class="n">os</span>
 <span class="kn">import</span> <span class="n">yaml</span>
 
-<span class="n">credentials_path</span> <span class="o">=</span> <span class="s">"path/to/your/credentials.json"</span>
-<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'GOOGLE_APPLICATION_CREDENTIALS'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credentials_path</span>
+<span class="n">credentials_path</span> <span class="o">=</span> <span class="sh">"</span><span class="s">path/to/your/credentials.json</span><span class="sh">"</span>
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="sh">'</span><span class="s">GOOGLE_APPLICATION_CREDENTIALS</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">credentials_path</span>
 
-<span class="n">load_custom_phrases_path</span> <span class="o">=</span> <span class="s">'path/to/your/custom_phrases.yaml'</span>
-<span class="n">project_id</span> <span class="o">=</span> <span class="s">"your-project-id"</span>
-<span class="n">location</span> <span class="o">=</span> <span class="s">"global"</span>
-<span class="n">custom_class_id</span> <span class="o">=</span> <span class="s">"mycustomclass01"</span>
-<span class="n">phrase_set_id</span> <span class="o">=</span> <span class="s">"myphraseset01"</span>
+<span class="n">load_custom_phrases_path</span> <span class="o">=</span> <span class="sh">'</span><span class="s">path/to/your/custom_phrases.yaml</span><span class="sh">'</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="sh">"</span><span class="s">your-project-id</span><span class="sh">"</span>
+<span class="n">location</span> <span class="o">=</span> <span class="sh">"</span><span class="s">global</span><span class="sh">"</span>
+<span class="n">custom_class_id</span> <span class="o">=</span> <span class="sh">"</span><span class="s">mycustomclass01</span><span class="sh">"</span>
+<span class="n">phrase_set_id</span> <span class="o">=</span> <span class="sh">"</span><span class="s">myphraseset01</span><span class="sh">"</span>
 
 
 <span class="k">def</span> <span class="nf">load_custom_phrases</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">load_custom_phrases_path</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="p">.</span><span class="nf">safe_load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
 
 
 
 <span class="k">def</span> <span class="nf">upload_blob</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">source_file_name</span><span class="p">,</span> <span class="n">destination_blob_name</span><span class="p">):</span>
-    <span class="s">"""Uploads a file to the bucket."""</span>
+    <span class="sh">"""</span><span class="s">Uploads a file to the bucket.</span><span class="sh">"""</span>
     <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">Client</span><span class="p">.</span><span class="nf">from_service_account_json</span><span class="p">(</span><span class="n">credentials_path</span><span class="p">)</span>
     <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="p">.</span><span class="nf">get_bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
     <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">.</span><span class="nf">blob</span><span class="p">(</span><span class="n">destination_blob_name</span><span class="p">)</span>
 
     <span class="n">blob</span><span class="p">.</span><span class="nf">upload_from_filename</span><span class="p">(</span><span class="n">source_file_name</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"File </span><span class="si">{</span><span class="n">source_file_name</span><span class="si">}</span><span class="s"> uploaded to </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">File </span><span class="si">{</span><span class="n">source_file_name</span><span class="si">}</span><span class="s"> uploaded to </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">transcribe_audio_file</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">phrases</span><span class="p">):</span>
@@ -522,7 +522,7 @@ request_id: 5898031208######
     <span class="k">if</span> <span class="ow">not</span> <span class="n">blob</span><span class="p">.</span><span class="nf">exists</span><span class="p">():</span>
         <span class="nf">upload_blob</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">destination_blob_name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"File </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s"> already exists in the bucket."</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">File </span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s"> already exists in the bucket.</span><span class="sh">"</span><span class="p">)</span>
 
     <span class="n">client</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="n">SpeechClient</span><span class="p">.</span><span class="nf">from_service_account_json</span><span class="p">(</span><span class="n">credentials_path</span><span class="p">)</span>
 
@@ -530,38 +530,38 @@ request_id: 5898031208######
         <span class="n">encoding</span><span class="o">=</span><span class="n">speech</span><span class="p">.</span><span class="n">RecognitionConfig</span><span class="p">.</span><span class="n">AudioEncoding</span><span class="p">.</span><span class="n">MP3</span><span class="p">,</span>
         <span class="n">sample_rate_hertz</span><span class="o">=</span><span class="mi">44100</span><span class="p">,</span>
         <span class="n">audio_channel_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-        <span class="n">language_code</span><span class="o">=</span><span class="s">"zh-CN"</span><span class="p">,</span>
+        <span class="n">language_code</span><span class="o">=</span><span class="sh">"</span><span class="s">zh-CN</span><span class="sh">"</span><span class="p">,</span>
         <span class="n">enable_automatic_punctuation</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">enable_separate_recognition_per_channel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">use_enhanced</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">enable_speaker_diarization</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">diarization_speaker_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-        <span class="n">speech_contexts</span><span class="o">=</span><span class="p">[{</span><span class="s">"phrases"</span><span class="p">:</span> <span class="n">phrases</span><span class="p">}],</span>
+        <span class="n">speech_contexts</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">phrases</span><span class="sh">"</span><span class="p">:</span> <span class="n">phrases</span><span class="p">}],</span>
     <span class="p">)</span>
 
-    <span class="n">storage_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"gs://</span><span class="si">{</span><span class="n">bucket_name</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="s">"</span>
+    <span class="n">storage_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="s">gs://</span><span class="si">{</span><span class="n">bucket_name</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">destination_blob_name</span><span class="si">}</span><span class="sh">"</span>
     <span class="n">audio</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">RecognitionAudio</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">storage_uri</span><span class="p">)</span>
 
     <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">long_running_recognize</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">audio</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="s">"Waiting for operation to complete..."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Waiting for operation to complete</span><span class="gp">...</span><span class="sh">"</span><span class="s">)
 
-    <span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">7200</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">operation</span><span class="p">.</span><span class="nf">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_seconds</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span>
+    timeout_seconds = 7200
+    response = operation.result(timeout=timeout_seconds)
+    return response
 
-<span class="k">def</span> <span class="nf">save_response_to_file</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">results</span><span class="p">):</span>
-            <span class="c1"># Choose the first alternative (most likely) from the list of alternatives
-</span>            <span class="n">alternative</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">alternatives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">transcript</span> <span class="o">=</span> <span class="n">alternative</span><span class="p">.</span><span class="n">transcript</span>
-             <span class="c1">#skip empty string and only save the frist transcript
-</span>            <span class="k">if</span> <span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">:</span>
-                <span class="nf">print</span><span class="p">(</span><span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">())</span>
-                <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">transcript</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Transcript saved to </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+def save_response_to_file(response, output_file):
+    with open(output_file, </span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="s">, encoding=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="s">) as f:
+        for index, result in enumerate(response.results):
+            # Choose the first alternative (most likely) from the list of alternatives
+            alternative = result.alternatives[0]
+            transcript = alternative.transcript
+             #skip empty string and only save the frist transcript
+            if transcript.strip() and index % 2 != 0 :
+                print(transcript.strip())
+                f.write(transcript + </span><span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="s">)
+    print(f</span><span class="sh">"</span><span class="n">Transcript</span> <span class="n">saved</span> <span class="n">to</span> <span class="p">{</span><span class="n">output_file</span><span class="p">}</span><span class="sh">"</span><span class="s">)
 
-</code></pre></div></div>
+</span></code></pre></div></div>
 </details>
 
 <h2 id="validating-the-transcription-results-via-chatgpt-4-modwel">Validating the Transcription Results via ChatGPT-4 Modwel</h2>
@@ -645,54 +645,54 @@ request_id: 5898031208######
 
 
 <span class="c1"># Set up logging
-</span><span class="n">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s">'%(asctime)s [%(levelname)s] - %(message)s'</span><span class="p">)</span>
+</span><span class="n">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="sh">'</span><span class="s">%(asctime)s [%(levelname)s] - %(message)s</span><span class="sh">'</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 
 <span class="c1"># Define paths variables
 </span><span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">.</span><span class="nf">cwd</span><span class="p">()</span>
 <span class="n">main_path</span> <span class="o">=</span> <span class="n">current_path</span><span class="p">.</span><span class="n">parent</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="n">main_path</span> <span class="o">/</span> <span class="s">"data"</span>
-<span class="n">env_path</span> <span class="o">=</span> <span class="n">main_path</span> <span class="o">/</span> <span class="s">".env"</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">main_path</span> <span class="o">/</span> <span class="sh">"</span><span class="s">data</span><span class="sh">"</span>
+<span class="n">env_path</span> <span class="o">=</span> <span class="n">main_path</span> <span class="o">/</span> <span class="sh">"</span><span class="s">.env</span><span class="sh">"</span>
 
 <span class="c1"># Load environment variables from .env file
 </span><span class="nf">load_dotenv</span><span class="p">(</span><span class="n">env_path</span><span class="p">)</span>
 
 <span class="c1"># Get OpenAI API key from environment variables
-</span><span class="n">openai_api_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="nf">getenv</span><span class="p">(</span><span class="s">"OPENAI_API_KEY"</span><span class="p">)</span>
+</span><span class="n">openai_api_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="nf">getenv</span><span class="p">(</span><span class="sh">"</span><span class="s">OPENAI_API_KEY</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="c1"># Use OpenAI API key to authenticate with OpenAI
 </span><span class="n">openai</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">openai_api_key</span>
 
 <span class="c1"># Define punctuation sets
-</span><span class="n">chinese_punctuation</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="s">"。，！？【】（）&lt;&gt;《》“”‘’；：——…～·"</span><span class="p">)</span>
+</span><span class="n">chinese_punctuation</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="sh">"</span><span class="s">。，！？【】（）&lt;&gt;《》“”‘’；：——…～·</span><span class="sh">"</span><span class="p">)</span>
 <span class="n">english_punctuation</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">read_file_contents</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
-    <span class="s">"""Read a text or JSON file and return its contents as a string or dictionary."""</span>
+    <span class="sh">"""</span><span class="s">Read a text or JSON file and return its contents as a string or dictionary.</span><span class="sh">"""</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Reading file </span><span class="si">{</span><span class="n">file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">file_path</span><span class="p">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s">".txt"</span><span class="p">:</span>
-            <span class="n">contents</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">().</span><span class="nf">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">""</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span> <span class="c1"># read the contents of a text file and remove newlines and spaces
-</span>        <span class="k">elif</span> <span class="n">file_path</span><span class="p">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s">".json"</span><span class="p">:</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Reading file </span><span class="si">{</span><span class="n">file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">file_path</span><span class="p">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="sh">"</span><span class="s">.txt</span><span class="sh">"</span><span class="p">:</span>
+            <span class="n">contents</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">().</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">,</span> <span class="sh">""</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">,</span> <span class="sh">""</span><span class="p">)</span> <span class="c1"># read the contents of a text file and remove newlines and spaces
+</span>        <span class="k">elif</span> <span class="n">file_path</span><span class="p">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="sh">"</span><span class="s">.json</span><span class="sh">"</span><span class="p">:</span>
             <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># read the contents of a JSON file
 </span>        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="s">"File type not supported. Only .txt and .json files are supported."</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">File type not supported. Only .txt and .json files are supported.</span><span class="sh">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">contents</span>
 
 <span class="k">def</span> <span class="nf">save_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">line_length</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-    <span class="s">"""Save the result as a plain text file with no more than 20 characters per line."""</span>
-    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Save the result as a plain text file with no more than 20 characters per line.</span><span class="sh">"""</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">line_length</span><span class="p">):</span>
             <span class="n">line</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">line_length</span><span class="p">]</span>
-            <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
 
 
 
 
-<span class="k">def</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">'cl100k_base'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="s">"""Returns the number of tokens in a text string."""</span>
+<span class="k">def</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">'</span><span class="s">cl100k_base</span><span class="sh">'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Returns the number of tokens in a text string.</span><span class="sh">"""</span>
     <span class="n">encoding</span> <span class="o">=</span> <span class="n">tiktoken</span><span class="p">.</span><span class="nf">get_encoding</span><span class="p">(</span><span class="n">encoding_name</span><span class="p">)</span>
     <span class="n">num_tokens</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">encoding</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">num_tokens</span>
@@ -708,59 +708,59 @@ request_id: 5898031208######
 <span class="k">def</span> <span class="nf">correct_text_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">buffer_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>  <span class="n">save_corrected_file</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="bp">True</span> <span class="p">,</span> <span class="n">model_token_limit</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">8192</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">text_file</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
 
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="s">"Wait for 2 seconds before the next request to OpenAI API"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sh">"</span><span class="s">Wait for 2 seconds before the next request to OpenAI API</span><span class="sh">"</span><span class="p">)</span>
     <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">text</span> <span class="o">=</span> <span class="nf">read_file_contents</span><span class="p">(</span><span class="n">text_file</span><span class="p">)</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully reading text from </span><span class="si">{</span><span class="n">text_file</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Successfully reading text from </span><span class="si">{</span><span class="n">text_file</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
     <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"system"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="s">"You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text."</span><span class="p">},</span>
-        <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="s">"This text is from a podcast by '傅适野，张之琪，冷建国'. There might be missing punctuation, wrong words, and typos."</span><span class="p">},</span>
-        <span class="p">{</span><span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">"content"</span><span class="p">:</span> <span class="sa">f</span><span class="s">"Please correct any errors in the following Chinese text based on context and only return corrected text:</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s">"</span><span class="p">},</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">You are a helpful assistant that corrects grammar, punctuation, and recognition errors in Chinese text.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">This text is from a podcast by </span><span class="sh">'</span><span class="s">傅适野，张之琪，冷建国</span><span class="sh">'</span><span class="s">. There might be missing punctuation, wrong words, and typos.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Please correct any errors in the following Chinese text based on context and only return corrected text:</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="sh">"</span><span class="p">},</span>
     <span class="p">]</span>
     
     <span class="c1">## Calculate the number of tokens based on the messages list
 </span>
-    <span class="n">num_tokens</span> <span class="o">=</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="n">message</span><span class="p">[</span><span class="s">'content'</span><span class="p">]</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">]))</span>
+    <span class="n">num_tokens</span> <span class="o">=</span> <span class="nf">num_tokens_from_string</span><span class="p">(</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="n">message</span><span class="p">[</span><span class="sh">'</span><span class="s">content</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">]))</span>
     <span class="n">generated_text_token</span> <span class="o">=</span> <span class="n">num_tokens</span> <span class="o">+</span> <span class="n">buffer_tokens</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Input text tokens: </span><span class="si">{</span><span class="n">num_tokens</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Max generated tokens set as </span><span class="si">{</span><span class="n">generated_text_token</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Input text tokens: </span><span class="si">{</span><span class="n">num_tokens</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Max generated tokens set as </span><span class="si">{</span><span class="n">generated_text_token</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
     <span class="c1">#check token limit
 </span>    <span class="nf">if </span><span class="p">(</span><span class="n">generated_text_token</span> <span class="o">+</span> <span class="n">num_tokens</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">model_token_limit</span><span class="p">:</span>
-        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Token limit exceeded. Please reduce the number of tokens to below </span><span class="si">{</span><span class="n">model_token_limit</span><span class="si">}</span><span class="s">."</span><span class="p">)</span>
+        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Token limit exceeded. Please reduce the number of tokens to below </span><span class="si">{</span><span class="n">model_token_limit</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">None</span>
 
     <span class="n">response</span> <span class="o">=</span> <span class="nf">completion_with_backoff</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="s">"gpt-4-0314"</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">gpt-4-0314</span><span class="sh">"</span><span class="p">,</span>
         <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
         <span class="n">max_tokens</span><span class="o">=</span><span class="n">generated_text_token</span>
     <span class="p">)</span>
-    <span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"message"</span><span class="p">][</span><span class="s">'content'</span><span class="p">]</span>
+    <span class="n">generated_text</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">][</span><span class="sh">'</span><span class="s">content</span><span class="sh">'</span><span class="p">]</span>
     <span class="n">generated_text</span> <span class="o">=</span> <span class="n">generated_text</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
 
     
     <span class="k">if</span> <span class="n">save_corrected_file</span><span class="p">:</span>
-        <span class="n">result_file_path</span> <span class="o">=</span> <span class="n">text_file</span><span class="p">.</span><span class="nf">with_name</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">stem</span><span class="si">}</span><span class="s">_restoration.txt"</span><span class="p">)</span>
+        <span class="n">result_file_path</span> <span class="o">=</span> <span class="n">text_file</span><span class="p">.</span><span class="nf">with_name</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">stem</span><span class="si">}</span><span class="s">_restoration.txt</span><span class="sh">"</span><span class="p">)</span>
         <span class="nf">save_result</span><span class="p">(</span><span class="n">generated_text</span><span class="p">,</span> <span class="n">result_file_path</span><span class="p">)</span>
-        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully writing result to </span><span class="si">{</span><span class="n">result_file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Successfully writing result to </span><span class="si">{</span><span class="n">result_file_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully processing text from </span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Successfully processing text from </span><span class="si">{</span><span class="n">text_file</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">generated_text</span>
  
     
 <span class="k">def</span> <span class="nf">text_restoration</span><span class="p">(</span><span class="n">filename</span> <span class="p">,</span><span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">600</span><span class="p">):</span>
-    <span class="s">"""Tokenize Chinese text using jieba, remove punctuation, and write each chunk to a separate file."""</span>
+    <span class="sh">"""</span><span class="s">Tokenize Chinese text using jieba, remove punctuation, and write each chunk to a separate file.</span><span class="sh">"""</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">content</span> <span class="o">=</span> <span class="nf">read_file_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="c1">#remove all punctuation    
 </span>    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">jieba</span><span class="p">.</span><span class="nf">cut</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">if</span> <span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">chinese_punctuation</span> <span class="ow">and</span> <span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">english_punctuation</span><span class="p">]</span>
-    <span class="n">restoration_text</span> <span class="o">=</span> <span class="s">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="n">restoration_text</span> <span class="o">=</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
     <span class="n">tokens_res</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="nf">lcut</span><span class="p">(</span><span class="n">restoration_text</span><span class="p">)</span>
     
     <span class="c1">#split into chunks
 </span>    <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokens_res</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">chunk_size</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">tokens_res</span><span class="p">),</span> <span class="n">chunk_size</span><span class="p">)]</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Splitting </span><span class="si">{</span><span class="n">filename</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> into </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span><span class="si">}</span><span class="s"> chunks"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Splitting </span><span class="si">{</span><span class="n">filename</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> into </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span><span class="si">}</span><span class="s"> chunks</span><span class="sh">"</span><span class="p">)</span>
     
     <span class="c1"># Create the output directory if it doesn't exist
 </span>    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="n">filename</span><span class="p">.</span><span class="n">stem</span>
@@ -770,29 +770,29 @@ request_id: 5898031208######
     <span class="c1"># Write each chunk to a separate file
 </span>    <span class="n">corrected_texts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
-        <span class="n">chunk_text</span> <span class="o">=</span> <span class="s">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-        <span class="n">chunk_filename</span> <span class="o">=</span> <span class="n">output_dir</span><span class="o">/</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">file_stem</span><span class="si">}</span><span class="s">_chunk_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">.txt"</span>
+        <span class="n">chunk_text</span> <span class="o">=</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+        <span class="n">chunk_filename</span> <span class="o">=</span> <span class="n">output_dir</span><span class="o">/</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">file_stem</span><span class="si">}</span><span class="s">_chunk_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">.txt</span><span class="sh">"</span>
         
-        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="s">"Writing chunk </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">chunk_filename</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Writing chunk </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">chunk_filename</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
         
         <span class="nf">save_result</span><span class="p">(</span><span class="n">chunk_text</span><span class="p">,</span> <span class="n">chunk_filename</span><span class="p">)</span>
         
         <span class="n">generated_text</span> <span class="o">=</span> <span class="nf">correct_text_file</span><span class="p">(</span><span class="n">chunk_filename</span><span class="p">,</span> <span class="n">save_corrected_file</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">corrected_texts</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
     
-    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">corrected_texts</span><span class="p">)</span>
-    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="n">combined_corrected_text</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>  <span class="c1"># remove all newlines
+    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">corrected_texts</span><span class="p">)</span>
+    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="n">combined_corrected_text</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">,</span> <span class="sh">""</span><span class="p">)</span>  <span class="c1"># remove all newlines
 </span>    <span class="c1"># remove all unnecessary spaces
-</span>    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="s">' '</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">combined_corrected_text</span><span class="p">.</span><span class="nf">split</span><span class="p">())</span>
+</span>    <span class="n">combined_corrected_text</span> <span class="o">=</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">combined_corrected_text</span><span class="p">.</span><span class="nf">split</span><span class="p">())</span>
 
-    <span class="n">combined_file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"output_dir / </span><span class="si">{</span><span class="n">file_stem</span><span class="si">}</span><span class="s">_restoration.txt"</span>
+    <span class="n">combined_file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="s">output_dir / </span><span class="si">{</span><span class="n">file_stem</span><span class="si">}</span><span class="s">_restoration.txt</span><span class="sh">"</span>
     <span class="nf">save_result</span><span class="p">(</span><span class="n">combined_corrected_text</span><span class="p">,</span> <span class="n">combined_file_path</span><span class="p">)</span>
     
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
 
-    <span class="n">filename</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sh">""</span>
     <span class="nf">text_restoration</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </code></pre></div></div>
 </details>
@@ -821,9 +821,9 @@ request_id: 5898031208######
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sh">'</span><span class="s">https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt</span><span class="sh">'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">stopwords</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">remove_stop_words</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">stop_words</span><span class="p">):</span>
     <span class="n">cleaned_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
@@ -842,9 +842,9 @@ request_id: 5898031208######
 <p>Now, we will create a preprocessing pipeline that combines all the above techniques. The pipeline takes raw Chinese text as input and returns cleaned tokens.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sh">'</span><span class="s">https://raw.githubusercontent.com/goto456/stopwords/master/hit_stopwords.txt</span><span class="sh">'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">stop_words</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="n">jieba</span>
 <span class="k">def</span> <span class="nf">tokenize_chinese_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -871,7 +871,7 @@ request_id: 5898031208######
     <span class="k">return</span> <span class="n">cleaned_tokens</span>
 
 
-<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
    <span class="n">process_content</span> <span class="o">=</span> <span class="nf">preprocess_chinese_text</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stop_words</span><span class="p">)</span>
 </code></pre></div></div>

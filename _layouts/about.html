@@ -43,7 +43,7 @@ layout: default
           </div>
 
           <!-- News -->
-          {% if page.news -%}
+          {% if page.news and site.announcements.enabled -%}
             <h4 style="text-align: center;"><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h4>
             {%- include news.html %}
           {%- endif %}

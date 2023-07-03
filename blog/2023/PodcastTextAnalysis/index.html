@@ -544,25 +544,25 @@ request_id: 5898031208######
     <span class="n">audio</span> <span class="o">=</span> <span class="n">speech</span><span class="p">.</span><span class="nc">RecognitionAudio</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">storage_uri</span><span class="p">)</span>
 
     <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">long_running_recognize</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">audio</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Waiting for operation to complete</span><span class="gp">...</span><span class="sh">"</span><span class="s">)
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Waiting for operation to complete...</span><span class="sh">"</span><span class="p">)</span>
 
-    timeout_seconds = 7200
-    response = operation.result(timeout=timeout_seconds)
-    return response
+    <span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">7200</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">operation</span><span class="p">.</span><span class="nf">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_seconds</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
 
-def save_response_to_file(response, output_file):
-    with open(output_file, </span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="s">, encoding=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="s">) as f:
-        for index, result in enumerate(response.results):
-            # Choose the first alternative (most likely) from the list of alternatives
-            alternative = result.alternatives[0]
-            transcript = alternative.transcript
-             #skip empty string and only save the frist transcript
-            if transcript.strip() and index % 2 != 0 :
-                print(transcript.strip())
-                f.write(transcript + </span><span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="s">)
-    print(f</span><span class="sh">"</span><span class="n">Transcript</span> <span class="n">saved</span> <span class="n">to</span> <span class="p">{</span><span class="n">output_file</span><span class="p">}</span><span class="sh">"</span><span class="s">)
+<span class="k">def</span> <span class="nf">save_response_to_file</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">results</span><span class="p">):</span>
+            <span class="c1"># Choose the first alternative (most likely) from the list of alternatives
+</span>            <span class="n">alternative</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">alternatives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">transcript</span> <span class="o">=</span> <span class="n">alternative</span><span class="p">.</span><span class="n">transcript</span>
+             <span class="c1">#skip empty string and only save the frist transcript
+</span>            <span class="k">if</span> <span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="n">transcript</span><span class="p">.</span><span class="nf">strip</span><span class="p">())</span>
+                <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">transcript</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Transcript saved to </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
-</span></code></pre></div></div>
+</code></pre></div></div>
 </details>
 
 <h2 id="validating-the-transcription-results-via-chatgpt-4-modwel">Validating the Transcription Results via ChatGPT-4 Modwel</h2>

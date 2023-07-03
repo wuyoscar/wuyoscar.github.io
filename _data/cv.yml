@@ -11,6 +11,10 @@
 - title: Education
   type: time_table
   contents:
+    - title: Doctor of Philosophy (Ongoing)
+      institution: Deakin University, Melbourne, Australia
+      year: 2023 - 26
+
     - title: Master of Data Science
       institution: Deakin University, Melbourne, Australia
       year: 2020 - 22
@@ -22,12 +26,7 @@
         #   contents:
         #     - Sub-description 1.
         #     - Sub-description 2.
-    - title: B. Sc Mathematics and Applied Mathematics
-      institution: Chongqing Technology and Business University, Chongqing, China
-      year: 2014 - 19
-      description:
-        - Achieved GPA 72.50
-        - Thesis:Practical Applications of Eigenvectors in Linear Algebra
+
 
 - title: Research Experience
   type: time_table
